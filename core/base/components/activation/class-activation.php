@@ -4,14 +4,15 @@
  *
  * @package fwb
  */
-namespace fwb\activate;
+namespace fwb;
 class Activation {
-    // public function init() {
-    //     var_dump('1221213');
-    //     wp_die();
-    // }
+    use Singleton;
+    public function init() {
+        var_dump('1221213');
+        wp_die();
+    }
 }
 
-$activation = new Activation();
 
-$activation->init();
+
+// Activation::get_instance();
