@@ -47,6 +47,7 @@ class Core {
         $base_classes = array(
             'enqueue-assets',
             'elementor-widgets',
+            'options-page',
             'options',
             'modules',
             'wp-widgets',
