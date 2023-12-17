@@ -52,11 +52,14 @@ class Options_Controls {
 	}
 
 	public static function color_picker_control( $field_id, $value ) {
-		echo '<input type="text" class="fwb-color-picker-control" name="' . esc_attr( $field_id ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $value ) . '" />';
+		echo '<input type="color" class="fwb-color-picker-control" name="' . esc_attr( $field_id ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $value ) . '"/>';
 	}
 
 	public static function file_upload_control( $field_id, $value ) {
-		echo '<input type="file" class="fwb-file-upload-control" name="' . esc_attr( $field_id ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $value ) . '" />';
+		echo '<input type="file" class="fwb-file-upload-control" name="' . esc_attr( $field_id ) . '" id="' . esc_attr( $field_id ) . '" value="" />';
+		if ( ! empty( $value ) ) {
+			echo '<span>' . esc_html__( 'Current file: ', 'fwb' ) . esc_html( $value ) . '</span>';
+		}
 	}
 
 	public static function number_control( $field_id, $value ) {

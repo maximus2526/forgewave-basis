@@ -53,6 +53,15 @@ class ExtendedOptions extends Options {
 
 		$this->add_field(
 			array(
+				'field_id'     => 'field2_4',
+				'field_title'  => 'Field 2.1',
+				'section_id'   => 'section2',
+				'control_type' => 'color_picker_control', // Use the correct control type method name
+			)
+		);
+
+		$this->add_field(
+			array(
 				'field_id'     => 'field2_2',
 				'field_title'  => 'Field 2.2',
 				'section_id'   => 'section2',
@@ -63,7 +72,42 @@ class ExtendedOptions extends Options {
 				), 
 			)
 		);
-		
+
+		$this->add_field(
+			array(
+				'field_id'     => 'field2_2',
+				'field_title'  => 'Field 2.2',
+				'section_id'   => 'section2',
+				'control_type' => 'radio_control',
+				'options'      => array(
+					'value1' => 'Option 1',
+					'value2' => 'Option 2',
+				), 
+			)
+		);
+
+		$this->add_field(
+			array(
+				'field_id'     => 'field2_12',
+				'field_title'  => 'Field 2.5',
+				'section_id'   => 'section2',
+				'control_type' => 'radio_control',
+				'options'      => array(
+					'value1' => 'Option 3',
+					'value2' => 'Option 2',
+				), 
+			)
+		);
+
+		$this->add_field(
+			array(
+				'field_id'     => 'field2_8',
+				'field_title'  => 'Field 2.2',
+				'section_id'   => 'section2',
+				'control_type' => 'file_upload_control',
+
+			)
+		);	
 	}
 }
 
