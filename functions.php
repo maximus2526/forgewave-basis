@@ -4,7 +4,6 @@
  *
  * @package fwb
  */
-namespace fwb;
 
 // Theme constants
 
@@ -100,4 +99,21 @@ if ( ! function_exists( 'fwb_get_admin_template' ) ) {
 			include FWB_ADMIN_TEMPLATES_DIR . '/' . $folder_name . '/' . $filename . '.php';
 		}
 	}
+}
+
+if ( ! function_exists( 'theme_widgets_init' ) ) {
+	function theme_sidebar_init() {
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Main Sidebar', 'fwb' ),
+				'id'            => 'main_sidebar',
+				'description'   => esc_html__( 'Widgets for the main sidebar', 'fwb' ),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+	}
+	add_action( 'widgets_init', 'theme_sidebar_init' );
 }

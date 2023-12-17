@@ -1,6 +1,6 @@
 <?php
 /**
- * Helper functions and constants
+ * Helper functions and constants after initialization.
  *
  * @package fwb
  */

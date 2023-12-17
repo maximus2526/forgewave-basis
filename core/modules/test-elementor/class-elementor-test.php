@@ -1,62 +1,107 @@
 <?php
+/**
+ * Elementor Test Widget Class
+ *
+ * @package fwb
+ */
+
 namespace fwb;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
+/**
+ * Class Elementor_Test_Widget
+ */
 class Elementor_Test_Widget extends Widget_Base {
 
-    public function get_name() {
-        return 'fwb-test-widget';
-    }
+	/**
+	 * Retrieve the widget name.
+	 *
+	 * @return string Widget name.
+	 */
+	public function get_name() {
+		return 'fwb-test-widget';
+	}
 
-    public function get_title() {
-        return esc_html__( 'Test Widget', 'fwb' );
-    }
+	/**
+	 * Retrieve the widget title.
+	 *
+	 * @return string Widget title.
+	 */
+	public function get_title() {
+		return esc_html__( 'Test Widget', 'fwb' );
+	}
 
-    public function get_icon() {
-        return 'eicon-archive'; // Змініть значок за потребою
-    }
+	/**
+	 * Retrieve the widget icon.
+	 *
+	 * @return string Widget icon.
+	 */
+	public function get_icon() {
+		return 'eicon-archive';
+	}
 
-    public function get_categories() {
-        return [ 'general' ]; // Визначте категорії віджетів Elementor, до якої слід додати ваш віджет
-    }
+	/**
+	 * Retrieve the widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return array( 'general' );
+	}
 
-    protected function _register_controls() {
-        $this->start_controls_section(
-            'section_content',
-            [
-                'label' => esc_html__( 'Content', 'fwb' ),
-            ]
-        );
+	/**
+	 * Register widget controls.
+	 *
+	 * @return void
+	 */
+	protected function _register_controls() {
+		$this->start_controls_section(
+			'section_content',
+			array(
+				'label' => esc_html__( 'Content', 'fwb' ),
+			)
+		);
 
-        $this->add_control(
-            'text',
-            [
-                'label' => esc_html__( 'Text', 'fwb' ),
-                'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Hello, World!', 'fwb' ),
-            ]
-        );
+		$this->add_control(
+			'text',
+			array(
+				'label'   => esc_html__( 'Text', 'fwb' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Hello, World!', 'fwb' ),
+			)
+		);
 
-        $this->end_controls_section();
-    }
+		$this->end_controls_section();
+	}
 
-    protected function render() {
-        $settings = $this->get_settings_for_display();
+	/**
+	 * Render the widget output on the frontend.
+	 *
+	 * @return void
+	 */
+	protected function render() {
+		$settings = $this->get_settings_for_display();
 
-        echo '<div class="fwb-test-widget">';
-        echo '<p>' . esc_html( $settings['text'] ) . '</p>';
-        echo '</div>';
-    }
+		echo '<div class="fwb-test-widget">';
+		echo '<p>' . esc_html( $settings['text'] ) . '</p>';
+		echo '</div>';
+	}
 
-    protected function _content_template() {
-        ?>
-        <div class="fwb-test-widget">
-            <p>{{{ settings.text }}}</p>
-        </div>
-        <?php
-    }
+	/**
+	 * Render the widget content template.
+	 *
+	 * @return void
+	 */
+	protected function _content_template() {
+		?>
+		<div class="fwb-test-widget">
+			<p>{{{ settings.text }}}</p>
+		</div>
+		<?php
+	}
 }
 
-\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Elementor_Test_Widget() );
+// Register the widget with Elementor.
+\Elementor\Plugin::instance()->widgets_manager->register( new Elementor_Test_Widget() );

@@ -1,37 +1,59 @@
 <?php
 /**
- * ?FILE DESCRIPTION?
+ * Class for managing options page in the WordPress admin.
  *
  * @package fwb
  */
 
 namespace fwb;
 
+/**
+ * Options_Page class.
+ */
 class Options_Page {
-	use Singleton;
+    use Singleton;
 
-	public function init() {
-		add_action( 'admin_menu', array( $this, 'add_to_menu' ) );
-	}
+    /**
+     * Initializes the options page.
+     *
+     * @return void
+     */
+    public function init() {
+        add_action( 'admin_menu', array( $this, 'add_to_menu' ) );
+    }
 
-
-	public function add_to_menu() {
+    /**
+     * Adds options page to the WordPress admin menu.
+     *
+     * @return void
+     */
+    public function add_to_menu() {
 		add_menu_page(
 			esc_html__( 'Options', 'fwb' ),
 			esc_html__( 'Options', 'fwb' ),
 			'manage_options',
 			'fwb-options-page',
-			array( $this, 'get_options_page' )
+			array( $this, 'get_options_page' ),
+			'dashicons-admin-generic',
+			20
 		);
-	}
+    }
 
-	public function get_options_page( $controls = array(), $args = array() ) {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'fwb' ) );
-		}
+    /**
+     * Callback function to display the options page content.
+     *
+     * @param array $controls Optional array of controls for the options page.
+     * @param array $args     Optional array of arguments for the options page.
+     *
+     * @return void
+     */
+    public function get_options_page( $controls = array(), $args = array() ) {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'fwb' ) );
+        }
 
-		fwb_get_admin_template( 'options', 'options-template' );
-	}
+        fwb_get_admin_template( 'options', 'options-template' );
+    }
 }
 
 Options_Page::get_instance();

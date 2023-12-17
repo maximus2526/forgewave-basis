@@ -28,6 +28,15 @@ class ExtendedOptions extends Options {
 
 		$this->add_field(
 			array(
+				'field_id'     => 'field1_60',
+				'field_title'  => 'Field 1.2',
+				'section_id'   => 'section1',
+				'control_type' => 'text_control', // Use the correct control type method name
+			)
+		);
+
+		$this->add_field(
+			array(
 				'field_id'     => 'field1_2',
 				'field_title'  => 'Field 1.2',
 				'section_id'   => 'section1',
@@ -69,7 +78,7 @@ class ExtendedOptions extends Options {
 				'options'      => array(
 					'value1' => 'Option 1',
 					'value2' => 'Option 2',
-				), 
+				),
 			)
 		);
 
@@ -82,7 +91,7 @@ class ExtendedOptions extends Options {
 				'options'      => array(
 					'value1' => 'Option 1',
 					'value2' => 'Option 2',
-				), 
+				),
 			)
 		);
 
@@ -95,7 +104,7 @@ class ExtendedOptions extends Options {
 				'options'      => array(
 					'value1' => 'Option 3',
 					'value2' => 'Option 2',
-				), 
+				),
 			)
 		);
 
@@ -107,7 +116,7 @@ class ExtendedOptions extends Options {
 				'control_type' => 'file_upload_control',
 
 			)
-		);	
+		);
 	}
 }
 
