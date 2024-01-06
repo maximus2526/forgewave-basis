@@ -4,6 +4,9 @@
  *
  * @package fwb
  */
+
+namespace fwb;
+
 ?>
 
 <!DOCTYPE html>
@@ -22,12 +25,8 @@
 <body <?php body_class(); ?>>
 
 	<?php
-	if ( function_exists( 'wp_body_open' ) ) {
-		wp_body_open();
-	}
+	$get_header_content = fwb_get_opt('header_selection');
 	?>
 	<header>
-		<div class="container">
-
-		</div>
+		<?php echo get_elementor_block_by_id($get_header_content); // phpcs:ignore?>
 	</header>

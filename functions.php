@@ -5,6 +5,13 @@
  * @package fwb
  */
 
+namespace fwb;
+require_once __DIR__ . '/vendor/autoload.php';
+
+// Core initialization
+
+\fwb\Base\Core::get_instance();
+
 // Theme constants
 
 define( 'FWB_VERSION', '0.0.1' );
@@ -27,7 +34,7 @@ define( 'FWB_DIR_CLASSES', FWB_BASE . '/classes' );
 // Templates
 define( 'FWB_ADMIN_TEMPLATES_DIR', FWB_BASE . '/templates' );
 
-// Asset paths
+// Assets paths
 define( 'FWB_FRONTEND_CSS_PATH', FWB_ASSETS . '/frontend/css' );
 define( 'FWB_FRONTEND_JS_PATH', FWB_ASSETS . '/frontend/js' );
 define( 'FWB_FRONTEND_IMG_PATH', FWB_ASSETS . '/frontend/img' );
@@ -36,7 +43,8 @@ define( 'FWB_ADMIN_CSS_PATH', FWB_ASSETS . '/admin/css' );
 define( 'FWB_ADMIN_JS_PATH', FWB_ASSETS . '/admin/js' );
 define( 'FWB_ADMIN_IMG_PATH', FWB_ASSETS . '/admin/img' );
 
-// Asset URIs
+// Assets URIs
+
 define( 'FWB_FRONTEND_CSS_URI', get_template_directory_uri() . '/assets/frontend/css' );
 define( 'FWB_FRONTEND_JS_URI', get_template_directory_uri() . '/assets/frontend/js' );
 define( 'FWB_FRONTEND_IMG_URI', get_template_directory_uri() . '/assets/frontend/img' );
@@ -45,9 +53,13 @@ define( 'FWB_ADMIN_CSS_URI', get_template_directory_uri() . '/assets/admin/css' 
 define( 'FWB_ADMIN_JS_URI', get_template_directory_uri() . '/assets/admin/js' );
 define( 'FWB_ADMIN_IMG_URI', get_template_directory_uri() . '/assets/admin/img' );
 
-define( 'FWB_COMMON_ASSETS', get_template_directory_uri() . '/assets/common' );
+define( 'FWB_COMMON_CSS_URI', get_template_directory_uri() . '/assets/common/css' );
+define( 'FWB_COMMON_JS_URI', get_template_directory_uri() . '/assets/common/js' );
+define( 'FWB_COMMON_IMG_URI', get_template_directory_uri() . '/assets/common/img' );
 
-require_once FWB_BASE . '/core.php';
+define( 'FWB_ELEMENTOR_CSS_URI', get_template_directory_uri() . '/assets/elementor/css' );
+define( 'FWB_ELEMENTOR_JS_URI', get_template_directory_uri() . '/assets/elementor/js' );
+define( 'FWB_ELEMENTOR_IMG_URI', get_template_directory_uri() . '/assets/elementor/img' );
 
 // TOOLS
 
@@ -101,19 +113,38 @@ if ( ! function_exists( 'fwb_get_admin_template' ) ) {
 	}
 }
 
-if ( ! function_exists( 'theme_widgets_init' ) ) {
-	function theme_sidebar_init() {
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Main Sidebar', 'fwb' ),
-				'id'            => 'main_sidebar',
-				'description'   => esc_html__( 'Widgets for the main sidebar', 'fwb' ),
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
-		);
+if ( ! function_exists( 'fwb_get_opt' ) ) {
+    /**
+     * Retrieve the option value by option key.
+     *
+     * @param string $option_key The key of the option to retrieve.
+     * @param mixed  $default    Optional. Default value to return if the option does not exist.
+     *
+     * @return mixed The value of the option.
+     */
+    function fwb_get_opt( $option_key, $default = false ) {
+        return get_option( $option_key, $default );
+    }
+}
+
+
+/**
+ * Get Elementor page content by ID.
+ *
+ * @param int $post_id Page ID.
+ * @return string Page content if edited with Elementor, empty string otherwise.
+ */
+if ( ! function_exists( 'get_elementor_block_by_id' ) ) {
+	function get_elementor_block_by_id( $post_id ) {
+		$content = '';
+		if ( class_exists( '\Elementor\Plugin' ) ) {
+			$elementor = \Elementor\Plugin::instance();
+			$document = $elementor->documents->get_doc_for_frontend( $post_id );
+			if ( $document && $document->is_built_with_elementor() ) {
+				$content = $elementor->frontend->get_builder_content( $post_id );
+			}
+		}
+
+		return $content;
 	}
-	add_action( 'widgets_init', 'theme_sidebar_init' );
 }

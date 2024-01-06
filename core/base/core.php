@@ -1,68 +1,49 @@
 <?php
 /**
- * Core class responsible for initializing and importing necessary files and classes.
+ * Core class responsible for initializing necessary classes.
  *
  * @package fwb
  */
-namespace fwb;
+namespace fwb\Base;
+use fwb\Base\Traits\Singleton;
+use fwb\Base\Classes;
+use fwb\core\Modules as Module;
 
 /**
- * Import files and classes
+ * Initializing classes
  */
 class Core {
+
+	use Singleton;
+
 	/**
-	 * Initializes the Core class and hooks the 'imports' method to the 'init' action.
+	 * Initializes the Core class and hooks the 'initializing' method to the 'init' action.
 	 */
 	public function init() {
-		add_action( 'init', array( $this, 'imports' ) );
+		// Including Base Classes
+		$this->call_get_instance(Classes\AddThemeSupport::class);
+        $this->call_get_instance(Classes\ElementorBlocks::class); 
+        $this->call_get_instance(Classes\EnqueueAssets::class);
+        $this->call_get_instance(Classes\Options::class);
+        $this->call_get_instance(Classes\OptionsPage::class);
+        $this->call_get_instance(Classes\Widgets::class);
+
+		// Including Modules
+		\fwb\Modules\Loader::get_instance();
+
+		// Include Something else
+		// namespace\Loader::get_instance();
+
 	}
 
-	/**
-	 * Calls various methods to import traits, base classes, and helper functions.
+  	/**
+	 * Check get_instance and get_instance when exists
+	 *
+	 * @param string $class_name
 	 */
-	public function imports() {
-		$this->import_traits();
-		$this->base_imports();
-		$this->import_helpers();
-	}
-
-	/**
-	 * Imports the Singleton trait.
-	 */
-	private function import_traits() {
-		require_once FWB_TRAITS . '/trait-singleton.php';
-	}
-
-	/**
-	 * Imports helper functions.
-	 */
-	private function import_helpers() {
-		require_once 'helpers.php';
-	}
-
-	/**
-	 * Imports base classes required for the application.
-	 */
-	private function base_imports() {
-		$base_classes = array( // Don't change ctructures here!
-			'elementor-blocks',
-			'enqueue-assets',
-			'options-page',
-			'options',
-			'add-theme-support',
-			'modules',
-			'wp-widgets',
-		);
-		foreach ( $base_classes as $base_class ) {
-			require_once FWB_DIR_CLASSES . '/class-' . $base_class . '.php';
+	private function call_get_instance($class_name) {
+		if (method_exists($class_name, 'get_instance')) {
+			$class_name::get_instance();
 		}
 	}
 }
-
-/**
- * Instance of the Core class to kickstart the initialization process.
- *
- * @var Core
- */
-$core = new Core();
-$core->init();

@@ -1,0 +1,97 @@
+/* _flexbox-grid.scss */
+.fwb-container {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fwb-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.fwb-col-1 {
+  flex: 0 0 8.3333333333%;
+  max-width: 8.3333333333%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-2 {
+  flex: 0 0 16.6666666667%;
+  max-width: 16.6666666667%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-4 {
+  flex: 0 0 33.3333333333%;
+  max-width: 33.3333333333%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-5 {
+  flex: 0 0 41.6666666667%;
+  max-width: 41.6666666667%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-7 {
+  flex: 0 0 58.3333333333%;
+  max-width: 58.3333333333%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-8 {
+  flex: 0 0 66.6666666667%;
+  max-width: 66.6666666667%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-10 {
+  flex: 0 0 83.3333333333%;
+  max-width: 83.3333333333%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-11 {
+  flex: 0 0 91.6666666667%;
+  max-width: 91.6666666667%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.fwb-col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}

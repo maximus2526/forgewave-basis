@@ -1,0 +1,26 @@
+/* _flexbox-grid.scss */
+
+// Container
+.fwb-container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+// Row
+.fwb-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+// Columns (1-12)
+@for $i from 1 through 12 {
+  .fwb-col-#{$i} {
+    flex: 0 0 percentage($i / 12);
+    max-width: percentage($i / 12);
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}

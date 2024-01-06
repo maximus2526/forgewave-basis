@@ -21,8 +21,3 @@ namespace fwb;
 		<?php wp_nonce_field( 'fwb_options_nonce', 'fwb_options_nonce_field' ); ?>
 	</div>
 </form>
-
-
-<?php 
-
-var_dump( Elementor_Blocks::get_instance()->get_all_elementor_block_ids() );
