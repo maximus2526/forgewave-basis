@@ -1,1 +1,11 @@
 @import 'column-system/column-system';
+
+// Typography
+
+@import 'typography/common-typography';
+
+// Controls
+
+@import 'controls/switcher';
+@import 'controls/color-picker';
+@import 'controls/select';

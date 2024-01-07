@@ -8,18 +8,13 @@
 namespace fwb;
 
 get_header();
+
 ?>
 
 <div class="fwb-container">
 	<div class="fwb-row">
-		<div class="fwb-col-3">
-			<?php
-			if ( is_active_sidebar( 'main-sidebar' ) ) {
-				dynamic_sidebar( 'main-sidebar');
-			}
-			?>
-		</div>
-		<div class="fwb-col-9">
+		<?php get_sidebar(); ?>
+		<div class="fwb-content fwb-col-auto">
 			<?php
 			if ( function_exists( 'is_product' ) && is_product() ) {
 				woocommerce_content();

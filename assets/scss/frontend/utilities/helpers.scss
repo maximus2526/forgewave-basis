@@ -1,0 +1,30 @@
+// Color schemes
+
+// Variables for light and dark schemes
+$fwb-scheme-light: (
+    text: $text-color,
+    link: $link-color,
+    link-hover: $link-hover-color,
+    heading: $heading-color,
+    footer-text: $footer-text-color,
+    text-on-background: $text-on-light,
+);
+
+$fwb-scheme-dark: (
+    text: $text-on-light,
+    link: $link-color,
+    link-hover: $link-hover-color,
+    heading: $heading-color,
+    footer-text: $footer-text-color,
+    text-on-background: $text-color,
+);
+
+// Apply light scheme to elements with class .fwb-scheme-light
+.fwb-scheme-light {
+    @include apply-scheme($fwb-scheme-light);
+}
+
+// Apply dark scheme to elements with class .fwb-scheme-dark
+.fwb-scheme-dark {
+    @include apply-scheme($fwb-scheme-dark);
+}

@@ -1,0 +1,63 @@
+// Сommon typography
+
+// Body text
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  // Headings
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 2em;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+  }
+  
+  h4 {
+    font-size: 1.2em;
+  }
+  
+  h5 {
+    font-size: 1.1em;
+  }
+  
+  h6 {
+    font-size: 1em;
+  }
+  
+  // Links
+  a {
+    color: #007bff;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  // Other text elements
+  p {
+    margin-bottom: 1em;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  em {
+    font-style: italic;
+  }
+  

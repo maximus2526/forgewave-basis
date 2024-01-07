@@ -130,6 +130,24 @@ table {
   border-spacing: 0;
 }
 
+.fwb-scheme-light {
+  --text: #333333;
+  --link: #0070c9;
+  --link-hover: #004080;
+  --heading: #1a1a1a;
+  --footer-text: #666666;
+  --text-on-background: #666666;
+}
+
+.fwb-scheme-dark {
+  --text: #666666;
+  --link: #0070c9;
+  --link-hover: #004080;
+  --heading: #1a1a1a;
+  --footer-text: #666666;
+  --text-on-background: #333333;
+}
+
 .fwb-menu.fwb-horizontal-menu {
   display: flex;
   justify-content: space-between;
@@ -157,4 +175,31 @@ table {
   width: 100%;
   height: 2px; /* Adjust the height of the underline */
   background-color: white; /* Use the same color as hover text color */
+}
+
+.fwb-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  border: 1px solid #ebebeb;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
+  background: var(--fwb-sidebar-background-color, #ffffff);
+  color: var(--fwb-sidebar-text-color, #333333);
+}
+
+.fwb-sidebar h2,
+.fwb-sidebar h3 {
+  color: var(--fwb-sidebar-headers-color, #1a1a1a);
+}
+
+.fwb-sidebar a {
+  color: var(--fwb-sidebar-anchors-color, #0070c9);
+}
+
+.fwb-sticky-sidebar {
+  position: sticky;
+  top: 0;
+  margin-top: 20px;
+  height: fit-content;
 }

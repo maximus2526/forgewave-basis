@@ -51,9 +51,15 @@ class OptionsControls {
 		}
 	}
 
-	public static function color_picker_control( $field_id, $value ) {
-		echo '<input type="color" class="fwb-color-picker-control" name="' . esc_attr( $field_id ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $value ) . '"/>';
+	public static function color_picker_control( $field_id, $value, $default ) {
+		?>
+		<div class="fwb-color-picker-control-wrapper">
+			<input type="color" class="fwb-color-picker-control" name="<?php echo esc_attr( $field_id ); ?>" id="<?php echo esc_attr( $field_id ); ?>" value="<?php echo esc_attr( $value ); ?>"/>
+			<button data-default="<?php echo $default ? esc_html( $default ) : ''; ?>" type="button" class="fwb-clear-color-button" data-target="<?php echo esc_attr( $field_id ); ?>">Clear Color</button>
+		</div>
+		<?php
 	}
+
 
 	public static function file_upload_control( $field_id, $value ) {
 		echo '<input type="file" class="fwb-file-upload-control" name="' . esc_attr( $field_id ) . '" id="' . esc_attr( $field_id ) . '" value="" />';
@@ -68,5 +74,15 @@ class OptionsControls {
 
 	public static function url_control( $field_id, $value ) {
 		echo '<input type="url" class="fwb-url-control" name="' . esc_attr( $field_id ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $value ) . '" />';
+	}
+
+	public static function switcher_control( $field_id, $value ) {
+		$checked = ( $value === true || $value === '1' ) ? 'checked="checked"' : '';
+		$value   = ( $value === true || $value === '1' ) ? ' value="1"' : '';
+
+		echo '<label class="fwb-switcher-control">
+			<input type="checkbox" name="' . esc_attr( $field_id ) . '" id="' . esc_attr( $field_id ) . '" value="1" ' . $checked . ' />
+			<span class="fwb-switcher-slider"></span>
+		</label>';
 	}
 }

@@ -1,0 +1,53 @@
+.fwb-switcher-control {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .fwb-switcher-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: background-color 0.4s, transform 0.2s ease-out;
+        border-radius: 34px;
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: transform 0.2s ease-out, background-color 0.4s;
+            border-radius: 50%;
+        }
+    }
+
+    &:hover .fwb-switcher-slider {
+        background-color: #99c2ff;
+        transform: scale(1.1) translateY(-5px);
+    }
+
+    input:checked+.fwb-switcher-slider {
+        background-color: #2196F3;
+    }
+
+    input:focus+.fwb-switcher-slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.fwb-switcher-slider:before {
+        transform: translateX(26px);
+    }
+}

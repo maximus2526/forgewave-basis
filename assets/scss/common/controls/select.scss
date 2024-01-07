@@ -1,0 +1,49 @@
+.fwb-select-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1) translateY(-5px);
+    }
+
+    // Style for the selected option
+    option:checked {
+        background-color: #99c2ff; // Change color for the selected option
+    }
+
+    @media (max-width: 768px) {
+        // Disable hover effect on mobile
+        &:hover,
+        &:focus {
+            transform: none;
+        }
+    }
+}
+
+// Apply the same transformation to subsequent controls
+.fwb-select-control + .fwb-control,
+.fwb-select-control ~ .fwb-control {
+    transition: transform 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1) translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+        // Disable hover effect on mobile
+        &:hover,
+        &:focus {
+            transform: none;
+        }
+    }
+}

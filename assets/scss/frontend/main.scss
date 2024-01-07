@@ -1,12 +1,15 @@
 
 // Utilities import
 
+@import 'utilities/varibles';
+@import 'utilities/mixins';
 @import 'utilities/reset';
 @import 'utilities/helpers';
-@import 'utilities/mixins';
-@import 'utilities/varibles';
-@import 'utilities/responsive-styles';
 
 // Components import
 
 @import 'components/menus/menus';
+@import 'components/sidebar/sidebar';
+@import 'components/sidebar/sticky-sidebar';
+
+

@@ -8,6 +8,11 @@
 namespace fwb;
 require_once __DIR__ . '/vendor/autoload.php';
 
+// Debug mode
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Core initialization
 
 \fwb\Base\Core::get_instance();
@@ -128,14 +133,15 @@ if ( ! function_exists( 'fwb_get_opt' ) ) {
 }
 
 
-/**
- * Get Elementor page content by ID.
- *
- * @param int $post_id Page ID.
- * @return string Page content if edited with Elementor, empty string otherwise.
- */
-if ( ! function_exists( 'get_elementor_block_by_id' ) ) {
-	function get_elementor_block_by_id( $post_id ) {
+
+if ( ! function_exists( 'fwb_get_elementor_block_by_id' ) ) {
+	/**
+	 * Get Elementor page content by ID.
+	 *
+	 * @param int $post_id Page ID.
+	 * @return string Page content if edited with Elementor, empty string otherwise.
+	 */
+	function fwb_get_elementor_block_by_id( $post_id ) {
 		$content = '';
 		if ( class_exists( '\Elementor\Plugin' ) ) {
 			$elementor = \Elementor\Plugin::instance();
@@ -147,4 +153,20 @@ if ( ! function_exists( 'get_elementor_block_by_id' ) ) {
 
 		return $content;
 	}
+}
+
+if (!function_exists('fwb_get_elementor_block_by_id')) {
+    /**
+     * Adds a CSS variable to the :root element.
+     *
+     * This function adds a new CSS variable to the :root element.
+     *
+     * @param string $variable_name  The name of the CSS variable.
+     * @param string $variable_value The value of the CSS variable.
+     */
+    function fwb_add_custom_css_variable($variable_name, $variable_value) {
+        echo '<style>';
+        echo ":root { --$variable_name: $variable_value; }";
+        echo '</style>';
+    }
 }

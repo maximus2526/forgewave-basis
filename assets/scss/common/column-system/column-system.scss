@@ -1,26 +1,57 @@
-/* _flexbox-grid.scss */
-
-// Container
 .fwb-container {
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+
+  @media screen and (max-width: 1200px) {
+    max-width: calc(100% - 60px);
   }
-  
-// Row
+}
+
 .fwb-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-left: -10px;
+  margin-right: -10px;
+  gap: 35px;
+
+  &.fwb-row-spacing {
+    margin-bottom: -20px;
+
+    [class^="fwb-col-"] {
+      margin-bottom: 20px;
+    }
+  }
 }
 
-// Columns (1-12)
+[class^="fwb-col-"] {
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  flex: 1 0 calc((100% - 20px - 35px) / 3);
+}
+
+.fwb-col-auto {
+  flex: 1 0 calc((100% - 20px) / 3);
+}
+
+.fwb-col-fixed {
+  flex: 0 0 auto;
+}
+
 @for $i from 1 through 12 {
   .fwb-col-#{$i} {
-    flex: 0 0 percentage($i / 12);
-    max-width: percentage($i / 12);
-    padding-right: 15px;
-    padding-left: 15px;
+    flex-basis: calc((100% / 12) * $i);
+    max-width: calc((100% / 12) * $i);
+
+    @media screen and (max-width: 1024px) {
+      flex-basis: calc((100% / 12) * $i);
+      max-width: calc((100% / 12) * $i);
+    }
+
+    @media screen and (max-width: 767px) {
+      flex-basis: calc((100% / 12) * $i);
+      max-width: calc((100% / 12) * $i);
+    }
   }
 }

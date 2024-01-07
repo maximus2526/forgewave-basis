@@ -21,9 +21,9 @@ class Core {
 	 */
 	public function init() {
 		// Base classes initialization
+		$this->call_get_instance(Classes\Widgets::class);
 		$this->call_get_instance(Classes\EnqueueAssets::class);
 		$this->call_get_instance(Classes\AddThemeSupport::class);
-		$this->call_get_instance(Classes\Widgets::class);
 		$this->call_get_instance(Classes\Options::class);
 		$this->call_get_instance(Classes\OptionsPage::class);
 		
@@ -50,6 +50,7 @@ class Core {
 	 */
 	private function call_get_instance($class_name) {
 		if (method_exists($class_name, 'get_instance')) {
+			// Note: if class will be extended - don't need actions, else: get_instance();
 			$class_name::get_instance();
 		}
 	}

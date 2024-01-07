@@ -1,5 +1,21 @@
 // Menu varibles
-
 $menu-hover-color: #9cc0f9; 
 $menu-hover-text-color: white;
 $menu-divider-color: rgb(219, 219, 219);
+
+// Basic colors (already defined)
+$text-color: #333333;
+$link-color: #0070c9;
+$link-hover-color: #004080;
+$heading-color: #1a1a1a;
+$footer-text-color: #666666;
+
+// Additional colors for contrast
+$text-on-light: #666666;
+$text-on-dark: #ffffff;
+
+// Sidebars varibles
+$sidebar-bg: var(--fwb-sidebar-background-color, #ffffff);
+$sidebar-headers-color: var(--fwb-sidebar-headers-color, $heading-color);
+$sidebar-text-color: var(--fwb-sidebar-text-color, $text-color);
+$sidebar-anchors-color: var(--fwb-sidebar-anchors-color, $link-color);

@@ -1,0 +1,6 @@
+// Define a mixin to apply color schemes
+@mixin apply-scheme($scheme) {
+    @each $property, $color in $scheme {
+        --#{$property}: #{$color};
+    }
+}

@@ -6,8 +6,8 @@ class TestWidgets extends \WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'simple_widget',
-			'Простий віджет',
-			array( 'description' => 'Простий віджет для виведення тексту' )
+			'Test Widget',
+			array( 'description' => 'Simple test widget.' )
 		);
 	}
 
@@ -20,7 +20,7 @@ class TestWidgets extends \WP_Widget {
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 		echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-		echo '<p>Це текст віджета.</p>';
+		echo '<p>Widget content.</p>';
 		echo $args['after_widget'];
 	}
 

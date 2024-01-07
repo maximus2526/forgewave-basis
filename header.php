@@ -28,5 +28,5 @@ namespace fwb;
 	$get_header_content = fwb_get_opt('header_selection');
 	?>
 	<header>
-		<?php echo get_elementor_block_by_id($get_header_content); // phpcs:ignore?>
+		<?php echo fwb_get_elementor_block_by_id($get_header_content); // phpcs:ignore?>
 	</header>

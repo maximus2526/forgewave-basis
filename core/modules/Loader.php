@@ -28,6 +28,7 @@ class Loader {
         Elementor\Plugin::instance()->widgets_manager->register( new MenusElementor\MenusElementor() );
         Elementor\Plugin::instance()->widgets_manager->register( new TestElementor\TestElementor() );
         \fwb\Modules\SiteStructures\SiteStructures::get_instance();
-
+        \fwb\Modules\Sidebar\Sidebar::get_instance();
+        \fwb\Modules\Performance\Performance::get_instance();
     }
 }
