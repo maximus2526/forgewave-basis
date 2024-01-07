@@ -7,6 +7,7 @@
 namespace fwb\Base\Classes;
 
 use fwb\Base\Traits\Singleton;
+use Elementor;
 class ElementorBlocks {
 	use Singleton;
 

@@ -6,6 +6,7 @@
  */
 
 namespace fwb\Base\Classes;
+use fwb\Base\Components\OptionsControls;
 
 /**
  * Options class.
@@ -121,12 +122,11 @@ class Options {
         $field_id     = $args['field_id'];
         $control_type = $args['control_type'];
         $value        = get_option( $field_id );
-        require_once FWB_BASE . '/components/options-controls/class-options-controls.php';
 
         if ( isset( $args['options'] ) ) {
-            Options_Controls::$control_type( $field_id, $value, $args['options'] );
+            OptionsControls\OptionsControls::$control_type( $field_id, $value, $args['options'] );
         } else {
-            Options_Controls::$control_type( $field_id, $value );
+            OptionsControls\OptionsControls::$control_type( $field_id, $value );
         }
     }
 }

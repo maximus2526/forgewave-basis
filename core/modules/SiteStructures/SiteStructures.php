@@ -26,7 +26,7 @@ class SiteStructures extends Options {
 				'field_title'  => __( 'Header template:', 'fwb' ),
 				'section_id'   => 'site_structure_section',
 				'control_type' => 'select_control',
-				'options'      => ElementorBlocks::get_instance()->get_ids_with_names(),
+				'options'      => \fwb\Base\Classes\ElementorBlocks::get_instance()->get_ids_with_names(),
 			)
 		);
 
@@ -36,10 +36,8 @@ class SiteStructures extends Options {
 				'field_title'  => __( 'Footer template:', 'fwb' ),
 				'section_id'   => 'site_structure_section',
 				'control_type' => 'select_control',
-				'options'      => ElementorBlocks::get_instance()->get_ids_with_names(),
+				'options'      => \fwb\Base\Classes\ElementorBlocks::get_instance()->get_ids_with_names(),
 			)
 		);
 	}
 }
-
-SiteStructures::get_instance();

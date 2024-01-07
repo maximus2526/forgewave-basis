@@ -102,6 +102,3 @@ class TestElementor extends Widget_Base {
 		<?php
 	}
 }
-
-// Register the widget with Elementor.
-\Elementor\Plugin::instance()->widgets_manager->register( new ElementorTest() );

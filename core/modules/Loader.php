@@ -7,6 +7,8 @@
 namespace fwb\Modules;
 
 use fwb\Base\Traits\Singleton;
+use \Elementor;
+
 
 /**
  * Initializing classes
@@ -19,17 +21,13 @@ class Loader {
 	 * Initializes Modules.
 	 */
 	public function init() {
-		$this->include_modules();
+		$this->modules_register();
 	}
 
-	private function include_modules() {
-        $modules_dir = __DIR__ . '/';
-        $module_files = glob($modules_dir . '*.php');
+	private function modules_register() {
+        Elementor\Plugin::instance()->widgets_manager->register( new MenusElementor\MenusElementor() );
+        Elementor\Plugin::instance()->widgets_manager->register( new TestElementor\TestElementor() );
+        \fwb\Modules\SiteStructures\SiteStructures::get_instance();
 
-        foreach ($module_files as $module_file) {
-            if (is_file($module_file)) {
-                require_once $module_file;
-            }
-        }
     }
 }

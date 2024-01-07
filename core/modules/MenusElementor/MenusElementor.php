@@ -161,10 +161,4 @@ class MenusElementor extends Widget_Base {
             echo '</div>';
         }
     }
-    
-
-
 }
-
-// Register the widget with Elementor.
-\Elementor\Plugin::instance()->widgets_manager->register( new MenusElementor() );

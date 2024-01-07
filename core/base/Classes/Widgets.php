@@ -56,7 +56,7 @@ public function register_sidebars() {
 	 */
 	public function register_widgets() {
 		Widgets::get_instance()->register_widgets();
-		register_widget( 'Simple_Widget' );
+		register_widget( '\fwb\Modules\TestWidgets\TestWidgets' );
 	}
 
 	/**

@@ -20,20 +20,27 @@ class Core {
 	 * Initializes the Core class and hooks the 'initializing' method to the 'init' action.
 	 */
 	public function init() {
-		// Including Base Classes
+		// Base classes initialization
+		$this->call_get_instance(Classes\EnqueueAssets::class);
 		$this->call_get_instance(Classes\AddThemeSupport::class);
-        $this->call_get_instance(Classes\ElementorBlocks::class); 
-        $this->call_get_instance(Classes\EnqueueAssets::class);
-        $this->call_get_instance(Classes\Options::class);
-        $this->call_get_instance(Classes\OptionsPage::class);
-        $this->call_get_instance(Classes\Widgets::class);
+		$this->call_get_instance(Classes\Widgets::class);
+		$this->call_get_instance(Classes\Options::class);
+		$this->call_get_instance(Classes\OptionsPage::class);
+		
+		// With plugins
+		add_action('init', array($this, 'initialize_instances'), 1);
+	}
 
-		// Including Modules
-		\fwb\Modules\Loader::get_instance();
 
+	public function initialize_instances() {
 		// Include Something else
 		// namespace\Loader::get_instance();
 
+		// Including Base Classes
+		$this->call_get_instance(Classes\ElementorBlocks::class); 
+
+		// Including Modules
+		\fwb\Modules\Loader::get_instance();
 	}
 
   	/**
