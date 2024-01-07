@@ -81,14 +81,13 @@ class Options {
 			$args['section_id'],
 			isset( $args['control_type'] ) ? $args['control_type'] : '',
 			isset( $args['options'] ) ? $args['options'] : '',
-			isset( $args['show_contition'] ) ? $args['show_contition'] : '',
+			isset( $args['show_condition'] ) ? $args['show_condition'] : '',
 			isset( $args['default'] ) ? $args['default'] : '',
 		);
 
 		register_setting( 'fwb-options-page', $args['field_id'] );
 		self::$fields[] = $fields_params;
 	}
-
 
 	/**
 	 * Adds settings fields to the WordPress admin.
@@ -106,32 +105,33 @@ class Options {
 
 			if ( isset( $field[4] ) ) {
 				$field_args['options'] = $field[4];
-			} 
-
-			if ( isset( $field[5] ) ) {
-				$field_args['show_contition'] = $field[5];
 			}
 
-			if ( $field[5] && is_array( $field[5] ) ) {
-				foreach ( $field[5] as $show_contition_field => $show_contition_value ) {
-					$show_contition_value_option = get_option( $show_contition_field );
-					if ( $show_contition_value_option != $show_contition_value ) {
-						return;
+			$condition_met = true; // Assume the condition is met by default
+
+			if ( isset( $field[5] ) && is_array( $field[5] ) ) {
+				foreach ( $field[5] as $show_condition_field => $show_condition_value ) {
+					$show_condition_value_option = get_option( $show_condition_field );
+
+					if ( $show_condition_value_option != $show_condition_value ) {
+						$condition_met = false;
 					}
 				}
 			}
 
-			add_settings_field(
-				$field[0],
-				$field_title,
-				array( $this, 'render_control' ),
-				'fwb-options-page',
-				$field[2],
-				$field_args
-			);
+			// Check if the condition is met before adding the field
+			if ( $condition_met ) {
+				add_settings_field(
+					$field[0],
+					$field_title,
+					array( $this, 'render_control' ),
+					'fwb-options-page',
+					$field[2],
+					$field_args
+				);
+			}
 		}
 	}
-
 
 	/**
 	 * Renders the control for the settings field.
@@ -145,14 +145,32 @@ class Options {
 		$control_type = $args['control_type'];
 		$value        = get_option( $field_id );
 		$default      = $args['default'];
+
 		if ( ! empty( $args['default'] ) && empty( $value ) ) {
 			$value = $default;
 		}
 
-		if ( ! empty( $args['options'] ) ) {
-			OptionsControls\OptionsControls::$control_type( $field_id, $value, $args['options'], $default );
-		} else {
-			OptionsControls\OptionsControls::$control_type( $field_id, $value, $default );
+		$show_condition = isset( $args['show_condition'] ) ? $args['show_condition'] : array();
+		$condition_met  = true; // Assume the condition is met by default
+
+		// Check show_condition
+		if ( ! empty( $show_condition ) && is_array( $show_condition ) ) {
+			foreach ( $show_condition as $show_condition_field => $show_condition_value ) {
+				$show_condition_value_option = get_option( $show_condition_field );
+				if ( $show_condition_value_option != $show_condition_value ) {
+					$condition_met = false;
+					break; // Break out of the loop since the condition is not met
+				}
+			}
+		}
+
+		// Render the control only if the condition is met
+		if ( $condition_met ) {
+			if ( ! empty( $args['options'] ) ) {
+				OptionsControls\OptionsControls::$control_type( $field_id, $value, $args['options'], $default );
+			} else {
+				OptionsControls\OptionsControls::$control_type( $field_id, $value, $default );
+			}
 		}
 	}
 }

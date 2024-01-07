@@ -23,6 +23,19 @@ class Widgets {
 		add_action( 'widgets_init', array( $this, 'register_widgets' ), 20 );
 	}
 
+	/**
+	 * Display Custom WooCommerce Sidebar
+	 *
+	 * This function checks if the current page is a WooCommerce-related page
+	 * (shop, product, cart, checkout, or account page) and displays the 'woocommerce-sidebar'.
+	 *
+	 * @return void
+	 */
+	public function display_custom_wc_sidebar() {
+		if ( is_shop() || is_product() || is_cart() || is_checkout() || is_account_page() ) {
+			dynamic_sidebar( 'woocommerce-sidebar' );
+		}
+	}
 
 	/**
 	 * Register Sidebars.
@@ -30,7 +43,7 @@ class Widgets {
 	 * @return void
 	 */
 	public function register_sidebars() {
-		$args = array(
+		$main_sidebar_args = array(
 			'id'            => 'main-sidebar',
 			'name'          => __( 'Sidebar', 'striped' ),
 			'description'   => __( 'Left column', 'striped' ),
@@ -40,7 +53,19 @@ class Widgets {
 			'after_widget'  => '</div>',
 		);
 		
-		register_sidebar( $args );
+		register_sidebar( $main_sidebar_args );
+
+		$woocommerce_sidebar_args = array(
+			'id'            => 'woocommerce-sidebar',
+			'name'          => __( 'Woocommerce sidebar', 'striped' ),
+			'description'   => __( 'Left column', 'striped' ),
+			'before_title'  => '<h4 class="fwb-widget-title">',
+			'after_title'   => '</h4>',
+			'before_widget' => '<div id="%1$s" class="fwb-widget %2$s">',
+			'after_widget'  => '</div>',
+		);
+		
+		register_sidebar( $woocommerce_sidebar_args );
 	}
 
 	/**

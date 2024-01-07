@@ -37,7 +37,7 @@ class Sidebar extends Options {
 				'section_id'     => 'sidebar-section',
 				'control_type'   => 'switcher_control',
 				'default'        => false,
-				'show_contition' => array( 'enable_sidebar' => true ),
+				'show_condition' => array( 'enable_sidebar' => true ),
 			)
 		);
 
@@ -48,7 +48,7 @@ class Sidebar extends Options {
 				'section_id'     => 'sidebar-section',
 				'control_type'   => 'color_picker_control',
 				'default'        => '#FFFFFF',
-				'show_contition' => array( 'enable_sidebar' => true ),
+				'show_condition' => array( 'enable_sidebar' => true ),
 			)
 		);
 
@@ -59,9 +59,10 @@ class Sidebar extends Options {
 				'section_id'     => 'sidebar-section',
 				'control_type'   => 'color_picker_control',
 				'default'        => '#1a1a1a',
-				'show_contition' => array( 'enable_sidebar' => true ),
+				'show_condition' => array( 'enable_sidebar' => '1' ),
 			)
 		);
+
 		$this->add_field(
 			array(
 				'field_id'       => 'sidebar_text_color',
@@ -69,7 +70,7 @@ class Sidebar extends Options {
 				'section_id'     => 'sidebar-section',
 				'control_type'   => 'color_picker_control',
 				'default'        => '#333333',
-				'show_contition' => array( 'enable_sidebar' => true ),
+				'show_condition' => array( 'enable_sidebar' => '1' ),
 			)
 		);
 
@@ -80,7 +81,7 @@ class Sidebar extends Options {
 				'section_id'     => 'sidebar-section',
 				'control_type'   => 'color_picker_control',
 				'default'        => '#0070c9',
-				'show_contition' => array( 'enable_sidebar' => true ),
+				'show_condition' => array( 'enable_sidebar' => '1' ),
 			)
 		);
 	}

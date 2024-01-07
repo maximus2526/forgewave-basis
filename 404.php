@@ -9,7 +9,7 @@ get_header();
 
 ?>
 
-<div class="container">
+<div class="fwb-container">
 	<?php echo esc_html__( 'Page not found', 'fwb' ); ?>
 </div>
 

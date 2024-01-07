@@ -25,7 +25,7 @@ class Performance extends Options {
 				'section_description' => __( 'Performance improvement.', 'fwb' ),
 			)
 		);
-
+	
 		$this->add_field(
 			array(
 				'field_id'       => 'fwb_gutenberg_disabled',
@@ -36,4 +36,5 @@ class Performance extends Options {
 			)
 		);
 	}
+	
 }

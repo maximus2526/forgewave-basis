@@ -27,6 +27,9 @@ class Loader {
 	private function modules_register() {
         Elementor\Plugin::instance()->widgets_manager->register( new MenusElementor\MenusElementor() );
         Elementor\Plugin::instance()->widgets_manager->register( new TestElementor\TestElementor() );
+		
+		// Options
+		// For Priority just change the init position
         \fwb\Modules\SiteStructures\SiteStructures::get_instance();
         \fwb\Modules\Sidebar\Sidebar::get_instance();
         \fwb\Modules\Performance\Performance::get_instance();
