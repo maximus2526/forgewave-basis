@@ -28,7 +28,7 @@ class Performance extends Options {
 	
 		$this->add_field(
 			array(
-				'field_id'       => 'fwb_gutenberg_disabled',
+				'field_id'       => 'gutenberg_disabled',
 				'field_title'    => __( 'Disable Gutenberg:', 'fwb' ),
 				'section_id'     => 'performance-section',
 				'control_type'   => 'switcher_control',

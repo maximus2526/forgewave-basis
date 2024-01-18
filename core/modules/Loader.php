@@ -7,8 +7,7 @@
 namespace fwb\Modules;
 
 use fwb\Base\Traits\Singleton;
-use \Elementor;
-
+use Elementor\Plugin;
 
 /**
  * Initializing classes
@@ -25,13 +24,16 @@ class Loader {
 	}
 
 	private function modules_register() {
-        Elementor\Plugin::instance()->widgets_manager->register( new MenusElementor\MenusElementor() );
-        Elementor\Plugin::instance()->widgets_manager->register( new TestElementor\TestElementor() );
-		
+		if ( class_exists( 'Elementor\Plugin' ) ) {
+			Plugin::instance()->widgets_manager->register( new MenusElementor\MenusElementor() );
+			Plugin::instance()->widgets_manager->register( new TestElementor\TestElementor() );
+		}
+
 		// Options
 		// For Priority just change the init position
-        \fwb\Modules\SiteStructures\SiteStructures::get_instance();
-        \fwb\Modules\Sidebar\Sidebar::get_instance();
-        \fwb\Modules\Performance\Performance::get_instance();
-    }
+		\fwb\Modules\SiteStructures\SiteStructures::get_instance();
+		\fwb\Modules\Sidebar\Sidebar::get_instance();
+		\fwb\Modules\Performance\Performance::get_instance();
+		\fwb\Modules\Header\Header::get_instance();
+	}
 }

@@ -1,0 +1,29 @@
+$header-top-indent: var(--fwb-header-top-indent);
+$header-bottom-indent: var(--fwb-header-bottom-indent);
+
+
+.fwb-container {
+    margin-top: $header-bottom-indent; // Adjust for header
+}
+
+.fwb-header {
+    max-width: var(--content-width);
+
+    &:not(.fwb-sticky-header) {
+        margin-top: $header-top-indent;
+    }
+}
+
+.fwb-sticky-header {
+    position: sticky;
+    top: $header-top-indent;
+    z-index: 100;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fwb-sticky-header.sticky {
+    background-color: #f8f8f8;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}

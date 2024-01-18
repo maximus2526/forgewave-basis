@@ -1,11 +1,10 @@
-@charset "UTF-8";
-.fwb-container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1200px;
+div.fwb-container {
+  display: block;
+  margin-inline: auto;
+  max-width: var(--container-max-width);
 }
 @media screen and (max-width: 1200px) {
-  .fwb-container {
+  div.fwb-container {
     max-width: calc(100% - 60px);
   }
 }
@@ -15,7 +14,7 @@
   flex-wrap: wrap;
   margin-left: -10px;
   margin-right: -10px;
-  gap: 35px; /* Додано властивість gap */
+  gap: 35px;
 }
 .fwb-row.fwb-row-spacing {
   margin-bottom: -20px;
@@ -28,7 +27,7 @@
   padding-left: 10px;
   padding-right: 10px;
   box-sizing: border-box;
-  flex: 1 0 calc((100% - 20px - 35px) / 3); /* Оновлено flex та враховано gap */
+  flex: 1 0 calc((100% - 20px - 35px) / 3);
 }
 
 .fwb-col-auto {
@@ -415,4 +414,15 @@ em {
   .fwb-select-control ~ .fwb-control:focus {
     transform: none;
   }
+}
+
+.fwb-text-control {
+  display: inline-block;
+  padding: 10px;
+  transition: background-color 0.4s, transform 0.2s ease-out;
+}
+.fwb-text-control:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.01);
+  background-color: #f8f8f8;
 }

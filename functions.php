@@ -6,12 +6,13 @@
  */
 
 namespace fwb;
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Debug mode
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+error_reporting( E_ALL );
+ini_set( 'display_errors', 1 );
 
 // Core initialization
 
@@ -119,17 +120,17 @@ if ( ! function_exists( 'fwb_get_admin_template' ) ) {
 }
 
 if ( ! function_exists( 'fwb_get_opt' ) ) {
-    /**
-     * Retrieve the option value by option key.
-     *
-     * @param string $option_key The key of the option to retrieve.
-     * @param mixed  $default    Optional. Default value to return if the option does not exist.
-     *
-     * @return mixed The value of the option.
-     */
-    function fwb_get_opt( $option_key, $default = false ) {
-        return get_option( $option_key, $default );
-    }
+	/**
+	 * Retrieve the option value by option key.
+	 *
+	 * @param string $option_key The key of the option to retrieve.
+	 * @param mixed  $default    Optional. Default value to return if the option does not exist.
+	 *
+	 * @return mixed The value of the option.
+	 */
+	function fwb_get_opt( $option_key, $default = false ) {
+		return get_option( $option_key, $default );
+	}
 }
 
 
@@ -145,7 +146,7 @@ if ( ! function_exists( 'fwb_get_elementor_block_by_id' ) ) {
 		$content = '';
 		if ( class_exists( '\Elementor\Plugin' ) ) {
 			$elementor = \Elementor\Plugin::instance();
-			$document = $elementor->documents->get_doc_for_frontend( $post_id );
+			$document  = $elementor->documents->get_doc_for_frontend( $post_id );
 			if ( $document && $document->is_built_with_elementor() ) {
 				$content = $elementor->frontend->get_builder_content( $post_id );
 			}
@@ -155,18 +156,18 @@ if ( ! function_exists( 'fwb_get_elementor_block_by_id' ) ) {
 	}
 }
 
-if (!function_exists('fwb_get_elementor_block_by_id')) {
-    /**
-     * Adds a CSS variable to the :root element.
-     *
-     * This function adds a new CSS variable to the :root element.
-     *
-     * @param string $variable_name  The name of the CSS variable.
-     * @param string $variable_value The value of the CSS variable.
-     */
-    function fwb_add_custom_css_variable($variable_name, $variable_value) {
-        echo '<style>';
-        echo ":root { --$variable_name: $variable_value; }";
-        echo '</style>';
-    }
+if ( ! function_exists( 'fwb_get_elementor_block_by_id' ) ) {
+	/**
+	 * Adds a CSS variable to the :root element.
+	 *
+	 * This function adds a new CSS variable to the :root element.
+	 *
+	 * @param string $variable_name  The name of the CSS variable.
+	 * @param string $variable_value The value of the CSS variable.
+	 */
+	function fwb_add_custom_css_variable( $variable_name, $variable_value ) {
+		echo '<style>';
+		echo ":root { --$variable_name: $variable_value; }";
+		echo '</style>';
+	}
 }

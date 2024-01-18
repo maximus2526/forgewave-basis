@@ -11,5 +11,8 @@
 @import 'components/menus/menus';
 @import 'components/sidebar/sidebar';
 @import 'components/sidebar/sticky-sidebar';
+@import 'components/header/header';
 
+// integrations
 
+@import 'integrations/elementor/fixes';

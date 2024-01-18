@@ -1,0 +1,11 @@
+.fwb-text-control {
+    display: inline-block;
+    padding: 10px;
+    transition: background-color 0.4s, transform 0.2s ease-out;
+
+    &:hover {
+        transform: scale(1.1) translateY(-5px);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.01);
+        background-color: #f8f8f8;
+    }
+}

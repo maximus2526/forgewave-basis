@@ -25,7 +25,7 @@ if ( fwb_get_opt( 'enable_sidebar' ) && is_active_sidebar( 'main-sidebar' ) ) :
         fwb_add_custom_css_variable( 'fwb-sidebar-anchors-color',  $sidebar_anchors_color );
     }
     
-	if ( fwb_get_opt( 'sticky_sidebar' ) ) {
+	if ( "1" === fwb_get_opt( 'sticky_sidebar' ) ) {
 		$sidebar_classes .= ' fwb-sticky-sidebar';
 	}
 	?>

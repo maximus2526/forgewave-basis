@@ -1,6 +1,10 @@
+$sidebar-top-indent: 50px;
 .fwb-sticky-sidebar {
+    top: $sidebar-top-indent;
     position: sticky;
-    top: 0;
-    margin-top: 20px;
     height: fit-content;
+}
+
+.fwb-sticky-header + .fwb-container .fwb-sticky-sidebar {
+    top: $sidebar-top-indent + 120px;
 }
