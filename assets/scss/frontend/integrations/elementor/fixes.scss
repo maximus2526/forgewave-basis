@@ -1,4 +1,3 @@
-
 .elementor-social-icons-wrapper {
 
     .elementor-icon {
@@ -7,3 +6,14 @@
         justify-content: center;
     }
 }
+
+.elementor-editor-active {
+
+    .fwb-mobile-view {
+        display: block;
+    }
+}
+
+// body.elementor-editor-active *:not(.elementor-edit-mode) {
+//     display: none !important;
+// }

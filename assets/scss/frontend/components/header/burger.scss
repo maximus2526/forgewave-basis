@@ -1,0 +1,62 @@
+.fwb-burger-element {
+
+    .fwb-font-awesome {
+        font-size: 30px;
+    }
+}
+
+.fwb-burger-element {
+    display: block;
+    text-align: center;
+    margin: 20px;
+}
+
+.fwb-burger-content {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+
+    .fwb-burger-menu {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+
+        a {
+            display: block;
+            padding: 15px;
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #ffcc00;
+            }
+        }
+    }
+
+    .fwb-burger-close {
+        position: absolute;
+        top: 35px;
+        right: 25px;
+        font-size: 60px;
+        color: #fff;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #ffcc00;
+        }
+    }
+}

@@ -67,6 +67,7 @@ define( 'FWB_ELEMENTOR_CSS_URI', get_template_directory_uri() . '/assets/element
 define( 'FWB_ELEMENTOR_JS_URI', get_template_directory_uri() . '/assets/elementor/js' );
 define( 'FWB_ELEMENTOR_IMG_URI', get_template_directory_uri() . '/assets/elementor/img' );
 
+
 // TOOLS
 
 if ( ! function_exists( 'debug' ) ) {
@@ -142,14 +143,22 @@ if ( ! function_exists( 'fwb_get_elementor_block_by_id' ) ) {
 	 * @param int $post_id Page ID.
 	 * @return string Page content if edited with Elementor, empty string otherwise.
 	 */
-	function fwb_get_elementor_block_by_id( $post_id ) {
+	function fwb_get_elementor_block_by_id( $post_id, $wrapper_class = '' ) {
 		$content = '';
+		ob_start();
 		if ( class_exists( '\Elementor\Plugin' ) ) {
 			$elementor = \Elementor\Plugin::instance();
 			$document  = $elementor->documents->get_doc_for_frontend( $post_id );
 			if ( $document && $document->is_built_with_elementor() ) {
-				$content = $elementor->frontend->get_builder_content( $post_id );
+				?>
+				<div class="fwn-elementor-wrap <?php echo esc_attr( $wrapper_class ); ?>">
+				<?php
+					echo $elementor->frontend->get_builder_content( $post_id ); // phpcs:ignore
+				?>
+				</div>
+				<?php
 			}
+			$content = ob_get_clean();
 		}
 
 		return $content;

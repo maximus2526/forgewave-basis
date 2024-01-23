@@ -7,6 +7,8 @@
 
 namespace fwb;
 
+require_once 'vendor/autoload.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +47,9 @@ namespace fwb;
 	}
 
 	$get_header_content = fwb_get_opt( 'header_selection' );
+
+	$get_mobile_header_content = fwb_get_opt( 'mobile_header_selection' );
+
 	?>
 	<header class="fwb-header<?php echo esc_attr( $header_classes ); ?>">
 		<?php
@@ -52,7 +57,8 @@ namespace fwb;
 		fwb_add_custom_css_variable( 'fwb-header-top-indent', $header_top_indent . 'px' );
 		fwb_add_custom_css_variable( 'fwb-header-bottom-indent', $header_bottom_indent . 'px' );
 
-		echo fwb_get_elementor_block_by_id($get_header_content); // phpcs:ignore
-
+		echo fwb_get_elementor_block_by_id( $get_mobile_header_content, 'fwb-mobile-view' ); // Mobile view
+		echo fwb_get_elementor_block_by_id( $get_header_content, 'fwb-desktop-view' );       // Desktop view
 		?>
+		
 	</header>

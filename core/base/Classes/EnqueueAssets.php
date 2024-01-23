@@ -45,7 +45,9 @@ class EnqueueAssets {
 	 */
 	public function enqueue_frontend_scripts() {
 		if ( ! is_admin()) {
-			wp_enqueue_script( 'fwb-frontend-scripts', FWB_FRONTEND_JS_URI . '/frontend-styles.js', array( 'jquery' ), FWB_VERSION, true );
+			wp_enqueue_script( 'fwb-frontend-scripts', FWB_FRONTEND_JS_URI . '/main.js', array( 'jquery' ), FWB_VERSION, true );
+			wp_enqueue_script( 'fwb-frontend-sidebar', FWB_FRONTEND_JS_URI . '/elements/sidebar.js', array( 'jquery' ), FWB_VERSION, true );
+			wp_enqueue_script( 'fwb-frontend-burger', FWB_FRONTEND_JS_URI . '/elements/burger.js', array( 'jquery' ), FWB_VERSION, true );
 		}
 	}
 

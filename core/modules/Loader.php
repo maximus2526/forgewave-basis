@@ -26,7 +26,7 @@ class Loader {
 	private function modules_register() {
 		if ( class_exists( 'Elementor\Plugin' ) ) {
 			Plugin::instance()->widgets_manager->register( new MenusElementor\MenusElementor() );
-			Plugin::instance()->widgets_manager->register( new TestElementor\TestElementor() );
+			Plugin::instance()->widgets_manager->register( new Header\BurgerMenu() );
 		}
 
 		// Options

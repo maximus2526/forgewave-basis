@@ -27,3 +27,20 @@ $header-bottom-indent: var(--fwb-header-bottom-indent);
     background-color: #f8f8f8;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
+.fwb-mobile-view {
+    display: none;
+}
+
+@media (max-width: 785px) {
+    .fwb-header {
+
+        .fwb-desktop-view {
+            display: none;
+        }
+
+        .fwb-mobile-view {
+            display: block;
+        }
+    }
+}

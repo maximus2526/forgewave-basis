@@ -155,6 +155,7 @@ table {
 }
 .fwb-menu.fwb-horizontal-menu .menu-header-container ul.menu {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
 }
 .fwb-menu.fwb-horizontal-menu li a {
@@ -197,6 +198,11 @@ table {
   color: var(--fwb-sidebar-anchors-color, #0070c9);
 }
 
+@media (max-width: 768px) {
+  .fwb-sidebar {
+    display: none;
+  }
+}
 .fwb-sticky-sidebar {
   top: 50px;
   position: sticky;
@@ -232,8 +238,79 @@ table {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+.fwb-mobile-view {
+  display: none;
+}
+
+@media (max-width: 785px) {
+  .fwb-header .fwb-desktop-view {
+    display: none;
+  }
+  .fwb-header .fwb-mobile-view {
+    display: block;
+  }
+}
+.fwb-burger-element .fwb-font-awesome {
+  font-size: 30px;
+}
+
+.fwb-burger-element {
+  display: block;
+  text-align: center;
+  margin: 20px;
+}
+
+.fwb-burger-content {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+.fwb-burger-content .fwb-burger-menu {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+.fwb-burger-content .fwb-burger-menu a {
+  display: block;
+  padding: 15px;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.fwb-burger-content .fwb-burger-menu a:hover {
+  color: #ffcc00;
+}
+.fwb-burger-content .fwb-burger-close {
+  position: absolute;
+  top: 35px;
+  right: 25px;
+  font-size: 60px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.fwb-burger-content .fwb-burger-close:hover {
+  color: #ffcc00;
+}
+
 .elementor-social-icons-wrapper .elementor-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.elementor-editor-active .fwb-mobile-view {
+  display: block;
 }

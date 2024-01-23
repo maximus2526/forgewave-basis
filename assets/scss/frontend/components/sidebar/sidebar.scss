@@ -18,3 +18,9 @@
 .fwb-sidebar a {
     color: $sidebar-anchors-color; // Adding link color
 }
+
+@media (max-width: 768px) {
+    .fwb-sidebar {
+        display: none;
+    }
+}

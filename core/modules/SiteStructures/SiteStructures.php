@@ -51,6 +51,16 @@ class SiteStructures extends Options {
 
 		$this->add_field(
 			array(
+				'field_id'     => 'mobile_header_selection',
+				'field_title'  => __( 'Mobile Header template:', 'fwb' ),
+				'section_id'   => 'site_structure_section',
+				'control_type' => 'select_control',
+				'options'      => \fwb\Base\Classes\ElementorBlocks::get_instance()->get_ids_with_names(),
+			)
+		);
+
+		$this->add_field(
+			array(
 				'field_id'     => 'footer_selection',
 				'field_title'  => __( 'Footer template:', 'fwb' ),
 				'section_id'   => 'site_structure_section',
