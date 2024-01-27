@@ -242,7 +242,7 @@ table {
   display: none;
 }
 
-@media (max-width: 785px) {
+@media (max-width: 768px) {
   .fwb-header .fwb-desktop-view {
     display: none;
   }
@@ -303,6 +303,23 @@ table {
 }
 .fwb-burger-content .fwb-burger-close:hover {
   color: #ffcc00;
+}
+
+.fwb-header-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fwb-header-toolbar .fwb-wc-menu-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.elementor-icon i,
+.elementor-icon svg {
+  font-family: "FontAwesome";
+  width: 1em;
+  height: 1em;
 }
 
 .elementor-social-icons-wrapper .elementor-icon {

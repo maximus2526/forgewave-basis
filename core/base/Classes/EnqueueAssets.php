@@ -44,7 +44,7 @@ class EnqueueAssets {
 	 * Enqueues frontend scripts based on the provided filename.
 	 */
 	public function enqueue_frontend_scripts() {
-		if ( ! is_admin()) {
+		if ( ! is_admin() ) {
 			wp_enqueue_script( 'fwb-frontend-scripts', FWB_FRONTEND_JS_URI . '/main.js', array( 'jquery' ), FWB_VERSION, true );
 			wp_enqueue_script( 'fwb-frontend-sidebar', FWB_FRONTEND_JS_URI . '/elements/sidebar.js', array( 'jquery' ), FWB_VERSION, true );
 			wp_enqueue_script( 'fwb-frontend-burger', FWB_FRONTEND_JS_URI . '/elements/burger.js', array( 'jquery' ), FWB_VERSION, true );
@@ -70,6 +70,7 @@ class EnqueueAssets {
 	 */
 	public function enqueue_common_assets() {
 		wp_enqueue_style( 'fwb-common-styles', FWB_COMMON_CSS_URI . '/common-styles.css', array(), FWB_VERSION );
-		wp_enqueue_script( 'fwb-common-scripts', FWB_COMMON_JS_URI . '/common-scripts.js', array(), FWB_VERSION, true );
+		wp_enqueue_script( 'fwb-common-scripts', FWB_COMMON_JS_URI . '/common-scripts.js', array( 'jquery' ), FWB_VERSION, true );
+		wp_enqueue_script( 'fwb-swiper', FWB_COMMON_JS_URI . '/integrations/swiper.js', array( 'jquery' ), FWB_VERSION, true );
 	}
 }

@@ -12,7 +12,9 @@
 @import 'components/sidebar/sticky-sidebar';
 @import 'components/header/header';
 @import 'components/header/burger';
+@import 'components/header/tooltip';
 
 // integrations
 
 @import 'integrations/elementor/fixes';
+@import 'integrations/woocommerce/fixes';

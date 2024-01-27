@@ -1,0 +1,10 @@
+.fwb-header-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .fwb-wc-menu-icons {
+        display: flex;
+        gap: 20px;
+    }
+}

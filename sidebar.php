@@ -35,3 +35,4 @@ if ( fwb_get_opt( 'enable_sidebar' ) && is_active_sidebar( 'main-sidebar' ) ) :
 		<?php dynamic_sidebar( 'main-sidebar' ); ?>
 	</div>            
 <?php endif; ?>
+

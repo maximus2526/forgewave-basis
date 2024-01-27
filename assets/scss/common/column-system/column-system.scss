@@ -1,11 +1,7 @@
 div.fwb-container {
   display: block;
   margin-inline: auto;
-  max-width: var(--container-max-width);
-
-  @media screen and (max-width: 1200px) {
-    max-width: calc(100% - 60px);
-  }
+  max-width: calc(100% - 60px);
 }
 
 .fwb-row {
@@ -52,6 +48,51 @@ div.fwb-container {
     @media screen and (max-width: 767px) {
       flex-basis: calc((100% / 12) * $i);
       max-width: calc((100% / 12) * $i);
+    }
+  }
+}
+
+// For product grid
+
+@for $i from 1 through 12 {
+  .fwb-product-cols-#{$i} {
+    display: flex;
+    flex-wrap: wrap;
+
+    li.product {
+      width: percentage(calc(1 / $i));
+      box-sizing: border-box;
+      padding: 20px 10px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  @for $i from 1 through 12 {
+    .fwb-product-cols-t-#{$i} {
+      display: flex;
+      flex-wrap: wrap;
+
+      li.product {
+        width: percentage(calc(1 / $i));
+        box-sizing: border-box;
+        padding: 20px 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  @for $i from 1 through 12 {
+    .fwb-product-cols-m-#{$i} {
+      display: flex;
+      flex-wrap: wrap;
+
+      li.product {
+        width: percentage(calc(1 / $i));
+        box-sizing: border-box;
+        padding: 20px 10px;
+      }
     }
   }
 }

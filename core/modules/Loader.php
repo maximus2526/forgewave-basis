@@ -27,6 +27,8 @@ class Loader {
 		if ( class_exists( 'Elementor\Plugin' ) ) {
 			Plugin::instance()->widgets_manager->register( new MenusElementor\MenusElementor() );
 			Plugin::instance()->widgets_manager->register( new Header\BurgerMenu() );
+			Plugin::instance()->widgets_manager->register( new Header\HeaderToolbar() );
+			Plugin::instance()->widgets_manager->register( new WcProducts\WcProducts() );
 		}
 
 		// Options
@@ -37,3 +39,4 @@ class Loader {
 		\fwb\Modules\Header\Header::get_instance();
 	}
 }
+

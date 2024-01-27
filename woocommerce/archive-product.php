@@ -24,7 +24,7 @@ get_header( 'shop' );
 		<!-- Your sidebar goes here -->
 		<?php
 				get_sidebar( 'woocommerce-sidebar' );
-			?>
+		?>
 		<div class="fwb-col-auto">
 			<?php
 			/**
@@ -83,6 +83,7 @@ get_header( 'shop' );
 		</div>
 	</div>
 </div>
+
 
 <?php
 get_footer( 'shop' );

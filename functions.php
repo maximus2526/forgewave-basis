@@ -30,8 +30,8 @@ define( 'FWB_THEME', FWB_DIR );
 define( 'FWB_ASSETS', FWB_DIR . '/assets' );
 define( 'FWB_CORE', FWB_DIR . '/core' );
 define( 'FWB_BASE', FWB_CORE . '/base' );
-define( 'FWB_INTEGRATIONS', FWB_DIR . '/integrations' );
-define( 'FWB_MODULES', FWB_CORE . '/modules' );
+define( 'FWB_INTEGRATIONS', FWB_CORE . '/Integrations' );
+define( 'FWB_MODULES', FWB_CORE . '/Modules' );
 define( 'FWB_TRAITS', FWB_BASE . '/traits' );
 define( 'FWB_COMPONENTS', FWB_BASE . '/components' );
 define( 'FWB_DIR_CLASSES', FWB_BASE . '/classes' );
@@ -66,6 +66,10 @@ define( 'FWB_COMMON_IMG_URI', get_template_directory_uri() . '/assets/common/img
 define( 'FWB_ELEMENTOR_CSS_URI', get_template_directory_uri() . '/assets/elementor/css' );
 define( 'FWB_ELEMENTOR_JS_URI', get_template_directory_uri() . '/assets/elementor/js' );
 define( 'FWB_ELEMENTOR_IMG_URI', get_template_directory_uri() . '/assets/elementor/img' );
+
+// Loaders
+
+require FWB_INTEGRATIONS . '/Loader.php';
 
 
 // TOOLS
@@ -180,3 +184,4 @@ if ( ! function_exists( 'fwb_get_elementor_block_by_id' ) ) {
 		echo '</style>';
 	}
 }
+
