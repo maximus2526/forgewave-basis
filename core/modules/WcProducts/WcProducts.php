@@ -292,6 +292,18 @@ class WcProducts extends Widget_Base {
 		);
 
 		$this->add_control(
+			'autoplay_delay',
+			array(
+				'label'     => esc_html__( 'Autoplay Delay in ms', 'fwb' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => '5000',
+				'condition' => array(
+					'enable_carousel' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
 			'autoplay_speed',
 			array(
 				'label'     => esc_html__( 'Autoplay Speed', 'fwb' ),
@@ -329,6 +341,7 @@ class WcProducts extends Widget_Base {
 	 * @return void
 	 */
 	protected function render() {
+
 		global $woocommerce;
 		$classes = '';
 		$woocommerce->frontend_includes();
@@ -341,46 +354,59 @@ class WcProducts extends Widget_Base {
 		$swiper_data = array(
 			'slides-per-view'   => $settings['slides_per_view'],
 			'space-between'     => $settings['space_between'],
-			'navigation-arrows' => $settings['navigation_arrows'],
-			'pagination'        => $settings['pagination'],
 			'autoplay'          => $settings['autoplay'],
 			'autoplay-speed'    => $settings['autoplay_speed'],
+			'autoplay-delay'    => $settings['autoplay_delay'],
 		);
 
 		if ( $settings['enable_carousel'] === 'yes' ) {
 			?>
-			<div class="fwb-products woocommerce swiper-container" data-swiper='<?php echo esc_attr( wp_json_encode( $swiper_data ) ); ?>'>
-				<div class="swiper-wrapper">
-					<?php
-					while ( $products_query->have_posts() ) {
-						$products_query->the_post();
-						echo '<div class="swiper-slide">';
-						wc_get_template_part( 'content', 'product' );
-						echo '</div>';
-					}
-					?>
-				</div>
+		<div class="fwb-products swiper woocommerce" data-swiper_attr='<?php echo wp_json_encode( $swiper_data ); ?>'>
+		
+			<div class="swiper-wrapper">
+				<?php
+				while ( $products_query->have_posts() ) {
+					$products_query->the_post();
+					echo '<div class="swiper-slide">';
+					wc_get_template_part( 'content', 'product' );
+					echo '</div>';
+				}
+				?>
 			</div>
-
+				<?php
+				if ( $settings['navigation_arrows'] === 'yes' ) {
+					?>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+					<?php
+				}
+				if ( $settings['pagination'] === 'yes' ) {
+					?>
+				<div class="swiper-pagination"></div>
+					<?php
+				}
+				?>
+		</div>
 			<?php
 		} elseif ( $products_query->have_posts() ) {
 			?>
-		<div class="fwb-products woocommerce">
-			<ul class="products <?php echo esc_html( $classes ); ?>">
+	<div class="fwb-products woocommerce">
+		<ul class="products <?php echo esc_html( $classes ); ?>">
 			<?php
 			while ( $products_query->have_posts() ) {
 				$products_query->the_post();
 				wc_get_template_part( 'content', 'product' );
 			}
 			?>
-			</ul>
-		</div>
+		</ul>
+	</div>
 			<?php
 			wp_reset_postdata();
 		} else {
 			do_action( 'woocommerce_no_products_found' );
 		}
 	}
+
 
 
 	// Helper function to generate a custom query for products

@@ -53,19 +53,16 @@ define( 'FWB_ADMIN_IMG_PATH', FWB_ASSETS . '/admin/img' );
 
 define( 'FWB_FRONTEND_CSS_URI', get_template_directory_uri() . '/assets/frontend/css' );
 define( 'FWB_FRONTEND_JS_URI', get_template_directory_uri() . '/assets/frontend/js' );
-define( 'FWB_FRONTEND_IMG_URI', get_template_directory_uri() . '/assets/frontend/img' );
 
 define( 'FWB_ADMIN_CSS_URI', get_template_directory_uri() . '/assets/admin/css' );
 define( 'FWB_ADMIN_JS_URI', get_template_directory_uri() . '/assets/admin/js' );
-define( 'FWB_ADMIN_IMG_URI', get_template_directory_uri() . '/assets/admin/img' );
 
 define( 'FWB_COMMON_CSS_URI', get_template_directory_uri() . '/assets/common/css' );
 define( 'FWB_COMMON_JS_URI', get_template_directory_uri() . '/assets/common/js' );
-define( 'FWB_COMMON_IMG_URI', get_template_directory_uri() . '/assets/common/img' );
+// Image constants
 
-define( 'FWB_ELEMENTOR_CSS_URI', get_template_directory_uri() . '/assets/elementor/css' );
-define( 'FWB_ELEMENTOR_JS_URI', get_template_directory_uri() . '/assets/elementor/js' );
-define( 'FWB_ELEMENTOR_IMG_URI', get_template_directory_uri() . '/assets/elementor/img' );
+define( 'FWB_IMG_URI', get_template_directory_uri() . '/assets/images/' );
+define( 'FWB_NO_IMG', get_template_directory_uri() . '/assets/images/no-image-placeholder.png' );
 
 // Loaders
 
@@ -184,4 +181,3 @@ if ( ! function_exists( 'fwb_get_elementor_block_by_id' ) ) {
 		echo '</style>';
 	}
 }
-

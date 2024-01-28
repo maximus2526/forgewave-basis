@@ -29,6 +29,8 @@ class Loader {
 			Plugin::instance()->widgets_manager->register( new Header\BurgerMenu() );
 			Plugin::instance()->widgets_manager->register( new Header\HeaderToolbar() );
 			Plugin::instance()->widgets_manager->register( new WcProducts\WcProducts() );
+			Plugin::instance()->widgets_manager->register( new Banner\Banner() );
+			Plugin::instance()->widgets_manager->register( new Categories\CategoryBanners() );
 		}
 
 		// Options
@@ -39,4 +41,3 @@ class Loader {
 		\fwb\Modules\Header\Header::get_instance();
 	}
 }
-

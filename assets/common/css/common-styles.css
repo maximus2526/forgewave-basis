@@ -28,6 +28,7 @@ div.fwb-container {
 
 .fwb-col-auto {
   flex: 1 0 calc((100% - 20px) / 3);
+  min-width: 0;
 }
 
 .fwb-col-fixed {

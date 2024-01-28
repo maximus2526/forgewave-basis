@@ -315,6 +315,99 @@ table {
   gap: 20px;
 }
 
+.fwb-category-banners {
+  display: flex;
+  flex-basis: auto;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.fwb-category-banner {
+  position: relative;
+  color: white;
+  width: 100%;
+}
+.fwb-category-banner .fwb-category-image {
+  width: 100%;
+  height: 100%;
+}
+.fwb-category-banner .fwb-category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+.fwb-category-banner .fwb-category-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 90%;
+  gap: 20px;
+}
+.fwb-category-banner .fwb-category-content .category-title,
+.fwb-category-banner .fwb-category-content .category-description,
+.fwb-category-banner .fwb-category-content .btn-go-to-category {
+  width: inherit;
+  margin: 0;
+  text-align: center;
+  word-wrap: break-word;
+}
+.fwb-category-banner .fwb-category-content .btn-go-to-category {
+  margin-top: auto;
+  margin-bottom: 30px;
+  width: inherit;
+  color: white;
+  margin: 0;
+  text-align: center;
+  background-color: #0070c9;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.fwb-category-banner .fwb-category-content .btn-go-to-category:hover {
+  background-color: #004080;
+}
+.fwb-category-banner:hover .fwb-category-image img {
+  transform: scale(1.01);
+}
+
+.fwb-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.fwb-banner .btn-go-to-banner {
+  width: inherit;
+  color: white;
+  margin: 0;
+  text-align: center;
+  background-color: #0070c9;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.fwb-banner .btn-go-to-banner:hover {
+  background-color: #004080;
+}
+.fwb-banner .banner-description {
+  margin-bottom: 30px;
+}
+.fwb-banner:hover {
+  transform: scale(1.01);
+  transition: transform 0.3s ease;
+}
+
 .elementor-icon i,
 .elementor-icon svg {
   font-family: "FontAwesome";
@@ -330,4 +423,11 @@ table {
 
 .elementor-editor-active .fwb-mobile-view {
   display: block;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: 1;
 }

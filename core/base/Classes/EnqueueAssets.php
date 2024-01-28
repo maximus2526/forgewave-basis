@@ -71,6 +71,14 @@ class EnqueueAssets {
 	public function enqueue_common_assets() {
 		wp_enqueue_style( 'fwb-common-styles', FWB_COMMON_CSS_URI . '/common-styles.css', array(), FWB_VERSION );
 		wp_enqueue_script( 'fwb-common-scripts', FWB_COMMON_JS_URI . '/common-scripts.js', array( 'jquery' ), FWB_VERSION, true );
-		wp_enqueue_script( 'fwb-swiper', FWB_COMMON_JS_URI . '/integrations/swiper.js', array( 'jquery' ), FWB_VERSION, true );
+
+		// Swiper styles
+		wp_enqueue_style( 'swiper', FWB_COMMON_JS_URI . '/libs/swiper/swiper-bundle.min.css' );
+
+		// Enqueue Swiper JS
+		wp_dequeue_script( 'swiper' );
+		wp_enqueue_style( 'swiper', FWB_COMMON_JS_URI . '/libs/swiper/swiper-bundle.min.css', array(), null, 'all' );
+		wp_enqueue_script( 'swiper', FWB_COMMON_JS_URI . '/libs/swiper/swiper-bundle.min.js', array( 'jquery' ), null, true );
+		wp_enqueue_script( 'fwb-swiper-init', FWB_COMMON_JS_URI . '/integrations/swiper-init.js', array( 'jquery' ), FWB_VERSION, true );
 	}
 }

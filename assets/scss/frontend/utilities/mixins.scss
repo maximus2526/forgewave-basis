@@ -4,3 +4,19 @@
         --#{$property}: #{$color};
     }
 }
+
+@mixin btn-go-to {
+    width: inherit;
+    color: white;
+    margin: 0;
+    text-align: center;
+    background-color: $link-color;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: $link-hover-color;
+    }
+}
