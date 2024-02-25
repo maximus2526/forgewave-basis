@@ -34,3 +34,11 @@
 .toplevel_page_fwb-options-page #wpcontent {
   padding-left: 0;
 }
+
+.toplevel_page_fwb-options-page #wpcontent, .toplevel_page_fwb-import-page #wpcontent {
+  padding-left: 0;
+}
+
+.menu-top.toplevel_page_fwb-options-page, .menu-top.toplevel_page_fwb-import-page {
+  background: rgb(0, 40, 114);
+}

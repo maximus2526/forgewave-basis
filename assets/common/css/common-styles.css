@@ -1055,7 +1055,7 @@ em {
   position: relative;
   text-align: center;
 }
-.fwb-page-title .fwb-page-title {
+.fwb-page-title .fwb-page-title-content {
   width: 100%;
   position: absolute;
   top: 50%;
@@ -1063,6 +1063,12 @@ em {
   transform: translate(-50%, -50%);
   color: #fff;
   z-index: 1;
+}
+.fwb-page-title .fwb-page-title-content .fwb-page-title {
+  color: #fff;
+}
+.fwb-page-title .fwb-page-title-content .fwb-description {
+  font-style: italic;
 }
 .fwb-page-title .fwb-page-title-bg {
   width: 100%;

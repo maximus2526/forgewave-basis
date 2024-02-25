@@ -11,7 +11,9 @@ namespace fwb;
 
 <form method="post" action="options.php">
 	<div class="fwb-page-title fwb-options-page-title">
-		<h1 class="fwb-page-title"><?php esc_html_e( 'Customization Hub', 'fwb' ); ?></h1>
+		<div class="fwb-page-title-content">
+			<h1 class="fwb-page-title"><?php esc_html_e( 'Customization Hub', 'fwb' ); ?></h1>
+		</div>
 		<img class="fwb-page-title-bg" src="<?php echo esc_url( FWB_IMG_URI )?>/admin/options-page-title-bg.jpeg" alt="Admin page title">
 	</div>
 	

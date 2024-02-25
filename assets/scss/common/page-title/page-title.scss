@@ -2,7 +2,7 @@
     position: relative;
     text-align: center;
 
-    .fwb-page-title {
+    .fwb-page-title-content {
         width: 100%;
         position: absolute;
         top: 50%;
@@ -10,6 +10,14 @@
         transform: translate(-50%, -50%);
         color: #fff;
         z-index: 1;
+
+        .fwb-page-title {
+            color: #fff;
+        }
+
+        .fwb-description {
+            font-style: italic;
+        }
     }
 
     .fwb-page-title-bg {

@@ -10,9 +10,9 @@
  use fwb\Base\Traits\Singleton;
 
 /**
- * Options_Page class.
+ * ImportPage class.
  */
-class OptionsPage {
+class ImportPage {
     use Singleton;
 
     /**
@@ -21,7 +21,7 @@ class OptionsPage {
      * @return void
      */
     public function init() {
-        add_action( 'admin_menu', array( $this, 'add_to_menu' ) );
+        add_action( 'admin_menu', array( $this, 'add_to_menu' ), 20 );
     }
 
     /**
@@ -31,13 +31,13 @@ class OptionsPage {
      */
     public function add_to_menu() {
 		add_menu_page(
-			esc_html__( 'Options', 'fwb' ),
-			esc_html__( 'Options', 'fwb' ),
+			esc_html__( 'Import Design', 'fwb' ),
+			esc_html__( 'Import Design', 'fwb' ),
 			'manage_options',
-			'fwb-options-page',
+			'fwb-import-page',
 			array( $this, 'get_options_page' ),
-			'dashicons-admin-generic',
-			2
+			'dashicons-art',
+			2.1
 		);
     }
 
@@ -53,7 +53,7 @@ class OptionsPage {
         if ( ! current_user_can( 'manage_options' ) ) {
             wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'fwb' ) );
         }
-        wp_enqueue_script( 'fwb-options-page-tabs', FWB_ADMIN_JS_URI . '/options-page-tabs.js', array(), FWB_VERSION, true );
-        \fwb\fwb_get_admin_template( 'options', 'options-template' );
+        wp_enqueue_script( 'fwb-import-dummy-page-tabs', FWB_ADMIN_JS_URI . '/import-dummy-page-tabs.js', array(), FWB_VERSION, true );
+        \fwb\fwb_get_admin_template( 'import', 'import-template' );
     }
 }

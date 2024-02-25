@@ -8,7 +8,6 @@ namespace fwb\Base;
 
 use fwb\Base\Traits\Singleton;
 use fwb\Base\Classes;
-use fwb\core\Modules as Module;
 
 /**
  * Initializing classes
@@ -28,6 +27,7 @@ class Core {
 		$this->call_get_instance( Classes\AddThemeSupport::class );
 		$this->call_get_instance( Classes\Options::class );
 		$this->call_get_instance( Classes\OptionsPage::class );
+		$this->call_get_instance( Classes\ImportPage::class );
 
 		// With plugins
 		add_action( 'init', array( $this, 'initialize_instances' ), 1 );
