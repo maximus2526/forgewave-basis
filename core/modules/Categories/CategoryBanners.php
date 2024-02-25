@@ -120,6 +120,16 @@ class CategoryBanners extends Widget_Base {
 			)
 		);
 
+		// Button text
+		$this->add_control(
+			'button_text',
+			array(
+				'label'      => esc_html__( 'Button text', 'fwb' ),
+				'type'       => \Elementor\Controls_Manager::TEXT,
+				'default'    => esc_html__('Go to category.', 'fwb'),
+			),
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -145,24 +155,16 @@ class CategoryBanners extends Widget_Base {
 			$image_url      = wp_get_attachment_url( $category_image ) ? wp_get_attachment_url( $category_image ) : FWB_NO_IMG;
 
 			echo '<div class="fwb-category-banner">';
-			// Category image
+
 			echo '<div class="fwb-category-image">';
 			echo '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( $category->name ) . '">';
 			echo '</div>';
 
-			// Flex styles for centering content
 			echo '<div class="fwb-category-content">';
-
-			// Heading with a class
 			echo '<h2 class="category-title">' . esc_html( $category->name ) . '</h2>';
-
-			// Paragraph with a class
 			echo '<p class="category-description">' . esc_html( $category->description ) . '</p>';
-
-			// Generate link to category archive
 			$category_link = get_term_link( $category );
 			echo '<a href="' . esc_url( $category_link ) . '" class="btn-go-to-category">' . esc_html( $settings['button_text'] ) . '</a>';
-
 			echo '</div>';
 
 			echo '</div>';

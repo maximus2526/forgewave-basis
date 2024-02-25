@@ -20,6 +20,7 @@ class Performance extends Options {
 	public function add_sections_and_fields() {
 		$this->add_section(
 			array(
+				'tab_id'              => esc_html( 'performance_tab' ),
 				'section_id'          => __( 'performance-section', 'fwb' ),
 				'section_title'       => __( 'Performance Section', 'fwb' ),
 				'section_description' => __( 'Performance improvement.', 'fwb' ),
@@ -28,7 +29,7 @@ class Performance extends Options {
 	
 		$this->add_field(
 			array(
-				'field_id'       => 'gutenberg_disabled',
+				'field_id'       => 'fwb_gutenberg_disabled',
 				'field_title'    => __( 'Disable Gutenberg:', 'fwb' ),
 				'section_id'     => 'performance-section',
 				'control_type'   => 'switcher_control',

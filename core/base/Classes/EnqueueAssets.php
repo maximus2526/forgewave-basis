@@ -79,6 +79,5 @@ class EnqueueAssets {
 		wp_dequeue_script( 'swiper' );
 		wp_enqueue_style( 'swiper', FWB_COMMON_JS_URI . '/libs/swiper/swiper-bundle.min.css', array(), null, 'all' );
 		wp_enqueue_script( 'swiper', FWB_COMMON_JS_URI . '/libs/swiper/swiper-bundle.min.js', array( 'jquery' ), null, true );
-		wp_enqueue_script( 'fwb-swiper-init', FWB_COMMON_JS_URI . '/integrations/swiper-init.js', array( 'jquery' ), FWB_VERSION, true );
 	}
 }

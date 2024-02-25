@@ -7,6 +7,8 @@
 
 namespace fwb;
 
+global $post;
+
 get_header();
 ?>
 
@@ -14,10 +16,12 @@ get_header();
 	<div class="fwb-row">
 		<?php get_sidebar(); ?>
 		<div class="fwb-content fwb-col-auto">
-			<header class="page-header alignwide">
-				<h1 class="page-title"><?php single_post_title(); ?></h1>
-			</header>
+			<?php if ( get_post_meta( $post->ID, 'fwb_hide_title_field', true  )): ?>
+			<div class="fwb-page-header alignwide">
+				<h1 class="fwb-page-title"><?php single_post_title(); ?></h1>
+			</div>
 			<?php
+			endif;
 			if ( have_posts() ) {
 				// Load posts loop.
 				while ( have_posts() ) {

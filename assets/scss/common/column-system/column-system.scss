@@ -53,6 +53,28 @@ div.fwb-container {
   }
 }
 
+@for $i from 1 through 12 {
+  .xts-col-m-#{$i} {
+    @media screen and (max-width: 767px) {
+      flex-basis: calc((100% / 12) * $i);
+      max-width: calc((100% / 12) * $i);
+      flex-grow: 1;
+    }
+  }
+  
+  .xts-col-t-#{$i} {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      flex-basis: calc((100% / 12) * $i);
+      max-width: calc((100% / 12) * $i);
+    }
+
+    @media screen and (max-width: 1024px) {
+      flex: 1 0 calc((100% - 20px) / 3);
+      min-width: 0;
+    }
+  }
+}
+
 // For product grid
 
 @for $i from 1 through 12 {

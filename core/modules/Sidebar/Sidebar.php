@@ -1,8 +1,10 @@
 <?php
 namespace fwb\Modules\Sidebar;
 
-use fwb\Base\Traits\Singleton;
 use fwb\Base\Classes\Options;
+use fwb\Base\Traits\Singleton;
+use fwb\Modules\Sidebar\HideSideBar\HideSideBar;
+use fwb\Modules\Sidebar\SelectSidebar\SelectSidebar;
 
 class Sidebar extends Options {
 	use Singleton;
@@ -10,13 +12,23 @@ class Sidebar extends Options {
 	public function init() {
 		parent::init();
 		$this->add_sections_and_fields();
+		$this->include_files();
 	}
+
+	public function include_files() {
+		new HideSideBar();
+		new SelectSidebar();
+	}
+
+
 
 	public function add_sections_and_fields() {
 		$this->add_section(
 			array(
+				'tab_id'        => esc_html( 'layout_tab' ),
 				'section_id'    => __( 'sidebar-section', 'fwb' ),
 				'section_title' => __( 'Sidebar settings', 'fwb' ),
+				'section_description' => __( 'Sidebar configurations', 'fwb' ),
 			)
 		);
 

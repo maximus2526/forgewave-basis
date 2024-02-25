@@ -21,6 +21,7 @@ class Widgets {
 	public function init() {
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ), 20 );
 		add_action( 'widgets_init', array( $this, 'register_widgets' ), 20 );
+		add_action( 'init', array( $this, 'wc_sidebar' ), 20 );
 	}
 
 	/**
@@ -43,7 +44,7 @@ class Widgets {
 
 		$main_sidebar_args = array(
 			'id'            => 'main-sidebar',
-			'name'          => __( 'Sidebar', 'striped' ),
+			'name'          => __( 'Main Sidebar', 'striped' ),
 			'description'   => __( 'Left column', 'striped' ),
 			'before_title'  => '<h4 class="fwb-widget-title">',
 			'after_title'   => '</h4>',
@@ -52,6 +53,15 @@ class Widgets {
 		);
 
 		register_sidebar( $main_sidebar_args );
+	}
+
+	public function wc_sidebar() {
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10); 
+		add_action( 'woocommerce_sidebar', array( $this, 'custom_woocommerce_sidebar' ) );
+	}
+	
+	public function custom_woocommerce_sidebar() {	
+        get_sidebar(); 
 	}
 
 	/**

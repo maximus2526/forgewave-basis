@@ -9,6 +9,8 @@ namespace fwb;
 
 get_header();
 
+global $post;
+
 ?>
 
 <div class="fwb-container">

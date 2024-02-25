@@ -1,0 +1,28 @@
+/* Options tooltip */
+.fwb-title[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+.fwb-title[data-tooltip]:hover::before {
+    content: attr(data-tooltip);
+    max-width: 750px;
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.fwb-title[data-tooltip]:hover::before {
+    opacity: 1;
+}

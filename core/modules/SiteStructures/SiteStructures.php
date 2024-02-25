@@ -33,6 +33,7 @@ class SiteStructures extends Options {
 
 		$this->add_section(
 			array(
+				'tab_id'              => esc_html( 'layout_tab' ),
 				'section_id'          => __( 'site_structure_section', 'fwb' ),
 				'section_title'       => __( 'Site structure selections', 'fwb' ),
 				'section_description' => __( 'Here you can select your site structure, like footer, header from Elementor Blocks.', 'fwb' ),

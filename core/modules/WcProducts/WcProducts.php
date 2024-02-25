@@ -360,33 +360,35 @@ class WcProducts extends Widget_Base {
 		);
 
 		if ( $settings['enable_carousel'] === 'yes' ) {
+			wp_enqueue_script( 'fwb-swiper-init', FWB_COMMON_JS_URI . '/integrations/swiper-init.js', array( 'jquery' ), FWB_VERSION, true );
+				
 			?>
-		<div class="fwb-products swiper woocommerce" data-swiper_attr='<?php echo wp_json_encode( $swiper_data ); ?>'>
-		
-			<div class="swiper-wrapper">
-				<?php
-				while ( $products_query->have_posts() ) {
-					$products_query->the_post();
-					echo '<div class="swiper-slide">';
-					wc_get_template_part( 'content', 'product' );
-					echo '</div>';
-				}
-				?>
+			<div class="fwb-products swiper woocommerce" data-swiper_attr='<?php echo wp_json_encode( $swiper_data ); ?>'>
+			
+				<div class="swiper-wrapper">
+					<?php
+					while ( $products_query->have_posts() ) {
+						$products_query->the_post();
+						echo '<div class="swiper-slide">';
+						wc_get_template_part( 'content', 'product' );
+						echo '</div>';
+					}
+					?>
+				</div>
+					<?php
+					if ( $settings['navigation_arrows'] === 'yes' ) {
+						?>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+						<?php
+					}
+					if ( $settings['pagination'] === 'yes' ) {
+						?>
+					<div class="swiper-pagination"></div>
+						<?php
+					}
+					?>
 			</div>
-				<?php
-				if ( $settings['navigation_arrows'] === 'yes' ) {
-					?>
-				<div class="swiper-button-next"></div>
-				<div class="swiper-button-prev"></div>
-					<?php
-				}
-				if ( $settings['pagination'] === 'yes' ) {
-					?>
-				<div class="swiper-pagination"></div>
-					<?php
-				}
-				?>
-		</div>
 			<?php
 		} elseif ( $products_query->have_posts() ) {
 			?>

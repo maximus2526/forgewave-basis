@@ -9,11 +9,17 @@ class Header extends Options {
 	public function init() {
 		parent::init();
 		$this->add_sections_and_fields();
+		add_action( 'init', array( $this, 'register_metaboxes' ), 20 );
+	}
+
+	public function register_metaboxes() {
+		new \fwb\Modules\Header\DisablePageTitle\DisablePageTitle();
 	}
 
 	public function add_sections_and_fields() {
 		$this->add_section(
 			array(
+				'tab_id'              => esc_html( 'layout_tab' ),
 				'section_id'          => __( 'header-section', 'fwb' ),
 				'section_title'       => __( 'Header Section', 'fwb' ),
 				'section_description' => __( 'Header configurations.', 'fwb' ),
@@ -29,8 +35,8 @@ class Header extends Options {
 				'default'      => 'header_content_full',
 				'options'      => array(
 					'header_content_boxed' => 'Boxed',
-					'header_content_full' => 'Full sized'
-				)
+					'header_content_full'  => 'Full sized',
+				),
 			)
 		);
 
@@ -63,7 +69,5 @@ class Header extends Options {
 				'default'      => false,
 			)
 		);
-
-
 	}
 }

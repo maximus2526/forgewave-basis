@@ -35,7 +35,7 @@ class Options {
 	 */
 	public function add_section( $args ) {
 		if ( ! in_array( $args['section_id'], self::$sections, true ) ) {
-			self::$sections[] = array( $args['section_id'], $args['section_title'], isset( $args['section_description'] ) ? $args['section_description'] : '' );
+			self::$sections[] = array( $args['section_id'], $args['section_title'], isset( $args['section_description'] ) ? $args['section_description'] : '', $args['tab_id'] );
 		}
 	}
 
@@ -48,11 +48,15 @@ class Options {
 		foreach ( self::$sections as $section ) {
 			add_settings_section(
 				$section[0],
-				$section[1],
+				'',
 				function () use ( $section ) {
 					$this->add_section_callback( $section );
 				},
-				'fwb-options-page'
+				'fwb-options-page',
+				array( 
+					'before_section' => '<div id="'. $section[3]. '_' . $section[0] .'" class="fwb-section fwb-col-auto xts-col-t-6 xts-col-m-12">',
+					'after_section' => '</div>',
+				)
 			);
 		}
 	}
@@ -64,7 +68,13 @@ class Options {
 	 * @return void
 	 */
 	public function add_section_callback( $section ) {
-		echo $section[2];
+		?>
+		<div class="fwb-section-header">
+			<h2 class="fwb-title" data-tooltip="<?php echo esc_html__( $section[2], 'fwb' ); ?>">
+				<?php echo esc_html( $section[1] ); ?>
+			</h2>
+		</div>
+		<?php
 	}
 
 	/**
