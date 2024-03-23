@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for managing options page in the WordPress admin.
+ * Class for css/js customs.
  *
  * @package fwb
  */
@@ -10,9 +10,9 @@
  use fwb\Base\Traits\Singleton;
 
 /**
- * Options_Page class.
+ * Custom_Page class.
  */
-class OptionsPage {
+class CustomPage {
     use Singleton;
 
     /**
@@ -31,12 +31,12 @@ class OptionsPage {
      */
     public function add_to_menu() {
 		add_menu_page(
-			esc_html__( 'Options', 'fwb' ),
-			esc_html__( 'Options', 'fwb' ),
+			esc_html__( 'Custom JS/CSS', 'fwb' ),
+			esc_html__( 'Custom JS/CSS', 'fwb' ),
 			'manage_options',
-			'fwb-options-page',
+			'fwb-custom-js-css',
 			array( $this, 'get_options_page' ),
-			'dashicons-admin-generic',
+			'dashicons-media-code',
 			2
 		);
     }
@@ -54,6 +54,6 @@ class OptionsPage {
             wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'fwb' ) );
         }
         wp_enqueue_script( 'fwb-admin-page-tabs', FWB_ADMIN_JS_URI . '/admin-page-tabs.js', array(), FWB_VERSION, true );
-        \fwb\fwb_get_admin_template( 'options', 'options-template' );
+        \fwb\fwb_get_admin_template( 'custom-page', 'custom-page' );
     }
 }

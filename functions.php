@@ -166,7 +166,7 @@ if ( ! function_exists( 'fwb_get_elementor_block_by_id' ) ) {
 	}
 }
 
-if ( ! function_exists( 'fwb_get_elementor_block_by_id' ) ) {
+if ( ! function_exists( 'fwb_add_custom_css_variable' ) ) {
 	/**
 	 * Adds a CSS variable to the :root element.
 	 *

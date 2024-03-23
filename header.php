@@ -57,8 +57,10 @@ require_once 'vendor/autoload.php';
 		fwb_add_custom_css_variable( 'fwb-header-top-indent', $header_top_indent . 'px' );
 		fwb_add_custom_css_variable( 'fwb-header-bottom-indent', $header_bottom_indent . 'px' );
 
-		echo fwb_get_elementor_block_by_id( $get_mobile_header_content, 'fwb-mobile-view' ); // Mobile view
-		echo fwb_get_elementor_block_by_id( $get_header_content, 'fwb-desktop-view' );       // Desktop view
+		if ( 'elementor-blocks' !== get_post_type() ) {
+			echo fwb_get_elementor_block_by_id( $get_mobile_header_content, 'fwb-mobile-view' ); // Mobile view
+			echo fwb_get_elementor_block_by_id( $get_header_content, 'fwb-desktop-view' );       // Desktop view
+		}
 		?>
 		
 	</header>

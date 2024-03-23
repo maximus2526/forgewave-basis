@@ -53,7 +53,7 @@ class ImportPage {
         if ( ! current_user_can( 'manage_options' ) ) {
             wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'fwb' ) );
         }
-        wp_enqueue_script( 'fwb-import-dummy-page-tabs', FWB_ADMIN_JS_URI . '/import-dummy-page-tabs.js', array(), FWB_VERSION, true );
+        wp_enqueue_script( 'fwb-admin-page-tabs', FWB_ADMIN_JS_URI . '/admin-page-tabs.js', array(), FWB_VERSION, true );
         \fwb\fwb_get_admin_template( 'import', 'import-template' );
     }
 }

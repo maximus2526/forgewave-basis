@@ -421,7 +421,7 @@ table {
   justify-content: center;
 }
 
-.elementor-editor-active .fwb-mobile-view {
+.elementor-editor-active .fwb-elementor-block .fwb-mobile-view {
   display: block;
 }
 
@@ -430,4 +430,8 @@ table {
   height: 100%;
   display: flex;
   flex: 1;
+}
+
+.product {
+  position: relative;
 }
