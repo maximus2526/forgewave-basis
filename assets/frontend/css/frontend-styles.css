@@ -112,7 +112,6 @@ body {
 }
 
 a {
-  color: black;
   text-decoration: none;
 }
 
@@ -132,8 +131,8 @@ table {
 
 .fwb-scheme-light {
   --text: #333333;
-  --link: #0070c9;
-  --link-hover: #004080;
+  --link: var(--fwb-links-color);
+  --link-hover: var(--fwb-links-hover-color);
   --heading: #1a1a1a;
   --footer-text: #666666;
   --text-on-background: #666666;
@@ -141,8 +140,8 @@ table {
 
 .fwb-scheme-dark {
   --text: #666666;
-  --link: #0070c9;
-  --link-hover: #004080;
+  --link: var(--fwb-links-color);
+  --link-hover: var(--fwb-links-hover-color);
   --heading: #1a1a1a;
   --footer-text: #666666;
   --text-on-background: #333333;
@@ -195,7 +194,7 @@ table {
 }
 
 .fwb-sidebar a {
-  color: var(--fwb-sidebar-anchors-color, #0070c9);
+  color: var(--fwb-sidebar-anchors-color, var(--fwb-links-color));
 }
 
 @media (max-width: 768px) {
@@ -366,14 +365,14 @@ table {
   color: white;
   margin: 0;
   text-align: center;
-  background-color: #0070c9;
+  background-color: var(--fwb-links-color);
   padding: 10px 20px;
   transition: background-color 0.3s ease;
   text-decoration: none;
   border-radius: 5px;
 }
 .fwb-category-banner .fwb-category-content .btn-go-to-category:hover {
-  background-color: #004080;
+  background-color: var(--fwb-links-hover-color);
 }
 .fwb-category-banner:hover .fwb-category-image img {
   transform: scale(1.01);
@@ -391,14 +390,14 @@ table {
   color: white;
   margin: 0;
   text-align: center;
-  background-color: #0070c9;
+  background-color: var(--fwb-links-color);
   padding: 10px 20px;
   transition: background-color 0.3s ease;
   text-decoration: none;
   border-radius: 5px;
 }
 .fwb-banner .btn-go-to-banner:hover {
-  background-color: #004080;
+  background-color: var(--fwb-links-hover-color);
 }
 .fwb-banner .banner-description {
   margin-bottom: 30px;
@@ -427,6 +426,7 @@ table {
 
 .swiper {
   width: 100%;
+  max-width: 100%;
   height: 100%;
   display: flex;
   flex: 1;
@@ -434,4 +434,54 @@ table {
 
 .product {
   position: relative;
+}
+
+.fwb-add-to-cart-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.fwb-add-to-cart-btn .fwb-quantity {
+  display: flex;
+  align-items: center;
+}
+.fwb-add-to-cart-btn .fwb-quantity input[type=button] {
+  background-color: #f8f9fa;
+  border: none;
+  color: #333;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease;
+}
+.fwb-add-to-cart-btn .fwb-quantity input[type=button]:hover {
+  background-color: #e9ecef;
+}
+.fwb-add-to-cart-btn .fwb-quantity input[type=number] {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin: 0 5px;
+  padding: 5px 10px;
+  width: 50px;
+  font-size: 1rem;
+}
+.fwb-add-to-cart-btn .button {
+  width: 140px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.fwb-add-to-cart-btn .button:hover {
+  background-color: #0056b3;
+}
+
+.fwb-product-design-default {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

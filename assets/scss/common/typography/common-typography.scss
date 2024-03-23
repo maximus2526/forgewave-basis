@@ -41,9 +41,10 @@ body {
   
   // Links
   a {
-    color: #007bff;
+    color: var(--fwb-links-color, black);
   
     &:hover {
+      color: var(--fwb-links-hover-color, rgb(31, 31, 31));
       text-decoration: underline;
     }
   }

@@ -38,6 +38,8 @@ class Loader {
 		\fwb\Modules\SiteStructures\SiteStructures::get_instance();
 		\fwb\Modules\Sidebar\Sidebar::get_instance();
 		\fwb\Modules\Performance\Performance::get_instance();
+		\fwb\Modules\Colors\Colors::get_instance();
+		\fwb\Modules\Snippets\Snippets::get_instance();
 		\fwb\Modules\Header\Header::get_instance();
 	}
 }

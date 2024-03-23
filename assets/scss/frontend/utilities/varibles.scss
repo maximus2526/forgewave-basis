@@ -5,8 +5,8 @@ $menu-divider-color: rgb(219, 219, 219);
 
 // Basic colors (already defined)
 $text-color: #333333;
-$link-color: #0070c9;
-$link-hover-color: #004080;
+$link-color: var(--fwb-links-color);
+$link-hover-color: var(--fwb-links-hover-color);
 $heading-color: #1a1a1a;
 $footer-text-color: #666666;
 

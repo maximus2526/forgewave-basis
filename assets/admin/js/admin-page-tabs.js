@@ -14,13 +14,22 @@ jQuery(document).ready(function($) {
             $('.fwb-section').hide();
             $('div[id^="' + tab_id.substr(1) + '"]').show();
         }
+        localStorage.setItem('activeTab', tab_id);
     });
 
-
-    var activeTab = $('.nav-tab-wrapper a.nav-tab-active').attr('href');
-    if (activeTab === '#all_tab') {
-        $('.fwb-section').show();
+    var activeTab = localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('.nav-tab-wrapper a[href="' + activeTab + '"]').addClass('nav-tab-active').siblings().removeClass('nav-tab-active');
+        $(activeTab).closest('.fwb-container').find('.fwb-section').show();
     } else {
-        $('div[id^="' + activeTab.substr(1) + '"]').show();
+        $('.nav-tab-wrapper a:first').addClass('nav-tab-active');
+        $('.fwb-section:first').show();
     }
+
+    $('.nav-tab-wrapper a[href="' + activeTab + '"]').trigger('click');
+
+    $('form').submit(function() {
+        var activeTab = $('.nav-tab-wrapper .nav-tab-active').attr('href');
+        localStorage.setItem('activeTab', activeTab);
+    });
 });

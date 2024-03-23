@@ -72,7 +72,7 @@ class SiteStructures extends Options {
 
 		$this->add_field(
 			array(
-				'field_id'     => 'site_content_width3',
+				'field_id'     => 'site_content_width',
 				'field_title'  => __( 'Content width:', 'fwb' ),
 				'section_id'   => 'site_structure_section',
 				'control_type' => 'text_control',
@@ -80,6 +80,5 @@ class SiteStructures extends Options {
 				'default'      => '300',
 			)
 		);
-
 	}
 }

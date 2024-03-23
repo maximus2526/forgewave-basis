@@ -82,7 +82,7 @@ div.fwb-container {
     display: flex;
     flex-wrap: wrap;
 
-    li.product {
+    .product {
       width: percentage(calc(1 / $i));
       box-sizing: border-box;
       padding: 20px 10px;
@@ -96,7 +96,7 @@ div.fwb-container {
       display: flex;
       flex-wrap: wrap;
 
-      li.product {
+      .product {
         width: percentage(calc(1 / $i));
         box-sizing: border-box;
         padding: 20px 10px;
@@ -111,7 +111,7 @@ div.fwb-container {
       display: flex;
       flex-wrap: wrap;
 
-      li.product {
+      .product {
         width: percentage(calc(1 / $i));
         box-sizing: border-box;
         padding: 20px 10px;

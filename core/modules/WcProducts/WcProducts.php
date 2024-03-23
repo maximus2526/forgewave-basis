@@ -361,7 +361,7 @@ class WcProducts extends Widget_Base {
 
 		if ( $settings['enable_carousel'] === 'yes' ) {
 			wp_enqueue_script( 'fwb-swiper-init', FWB_COMMON_JS_URI . '/integrations/swiper-init.js', array( 'jquery' ), FWB_VERSION, true );
-				
+			wp_enqueue_style( 'swiper-2', FWB_COMMON_JS_URI . '/libs/swiper/swiper-bundle.min.css' );
 			?>
 			<div class="fwb-products swiper woocommerce" data-swiper_attr='<?php echo wp_json_encode( $swiper_data ); ?>'>
 			
@@ -393,14 +393,14 @@ class WcProducts extends Widget_Base {
 		} elseif ( $products_query->have_posts() ) {
 			?>
 	<div class="fwb-products woocommerce">
-		<ul class="products <?php echo esc_html( $classes ); ?>">
+		<div class="products <?php echo esc_html( $classes ); ?>">
 			<?php
 			while ( $products_query->have_posts() ) {
 				$products_query->the_post();
 				wc_get_template_part( 'content', 'product' );
 			}
 			?>
-		</ul>
+		</div>
 	</div>
 			<?php
 			wp_reset_postdata();

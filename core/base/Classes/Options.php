@@ -35,7 +35,7 @@ class Options {
 	 */
 	public function add_section( $args ) {
 		if ( ! in_array( $args['section_id'], self::$sections, true ) ) {
-			self::$sections[] = array( $args['section_id'], $args['section_title'], isset( $args['section_description'] ) ? $args['section_description'] : '', $args['tab_id'] );
+			self::$sections[] = $args;
 		}
 	}
 
@@ -47,17 +47,17 @@ class Options {
 	public function add_settings_section() {
 		foreach ( self::$sections as $section ) {
 			add_settings_section(
-				$section[0],
+				$section['section_id'],
 				'',
 				function () use ( $section ) {
 					$this->add_section_callback( $section );
 				},
-				'fwb-options-page',
+				isset( $section['page'] ) ? $section['page'] : 'fwb-options-page',
 				array( 
-					'before_section' => '<div id="'. $section[3]. '_' . $section[0] .'" class="fwb-section fwb-col-auto xts-col-t-6 xts-col-m-12">',
+					'before_section' => '<div id="'. $section['tab_id']. '_' . $section['section_id'] .'" class="fwb-section fwb-col-auto xts-col-t-6 xts-col-m-12">',
 					'after_section' => '</div>',
 				)
-			);
+			);	
 		}
 	}
 
@@ -70,8 +70,8 @@ class Options {
 	public function add_section_callback( $section ) {
 		?>
 		<div class="fwb-section-header">
-			<h2 class="fwb-title" data-tooltip="<?php echo esc_html__( $section[2], 'fwb' ); ?>">
-				<?php echo esc_html( $section[1] ); ?>
+			<h2 class="fwb-title" <?php echo isset( $section['section_description'] ) ? "data-tooltip='" . esc_html__( $section['section_description'], 'fwb' ) . "'" : '' ?> >
+				<?php echo esc_html( $section['section_title'] ); ?>
 			</h2>
 		</div>
 		<?php
@@ -95,7 +95,10 @@ class Options {
 			isset( $args['default'] ) ? $args['default'] : '',
 		);
 
-		register_setting( 'fwb-options-page', $args['field_id'] );
+		foreach( self::$sections as $section ) { 
+			register_setting( isset( $section['page'] ) ? $section['page'] : 'fwb-options-page', $args['field_id'] );
+		}
+
 		self::$fields[] = $fields_params;
 	}
 
@@ -131,14 +134,16 @@ class Options {
 
 			// Check if the condition is met before adding the field
 			if ( $condition_met ) {
-				add_settings_field(
-					$field[0],
-					$field_title,
-					array( $this, 'render_control' ),
-					'fwb-options-page',
-					$field[2],
-					$field_args
-				);
+				foreach( self::$sections as $section ) { 
+					add_settings_field(
+						$field[0],
+						$field_title,
+						array( $this, 'render_control' ),
+						isset( $section['page'] ) ? $section['page'] : 'fwb-options-page',
+						$field[2],
+						$field_args
+					);
+				}
 			}
 		}
 	}

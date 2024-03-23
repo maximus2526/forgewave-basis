@@ -28,7 +28,7 @@ class Core {
 		$this->call_get_instance( Classes\Options::class );
 		$this->call_get_instance( Classes\OptionsPage::class );
 		$this->call_get_instance( Classes\ImportPage::class );
-		$this->call_get_instance( Classes\CustomPage::class );
+		$this->call_get_instance( Classes\SnippetsPage::class );
 
 		// With plugins
 		add_action( 'init', array( $this, 'initialize_instances' ), 1 );

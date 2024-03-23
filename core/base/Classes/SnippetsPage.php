@@ -10,9 +10,9 @@
  use fwb\Base\Traits\Singleton;
 
 /**
- * Custom_Page class.
+ * Snippets Page class.
  */
-class CustomPage {
+class SnippetsPage {
     use Singleton;
 
     /**
@@ -54,6 +54,6 @@ class CustomPage {
             wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'fwb' ) );
         }
         wp_enqueue_script( 'fwb-admin-page-tabs', FWB_ADMIN_JS_URI . '/admin-page-tabs.js', array(), FWB_VERSION, true );
-        \fwb\fwb_get_admin_template( 'custom-page', 'custom-page' );
+        \fwb\fwb_get_admin_template( 'snippets', 'snippets-template' );
     }
 }
