@@ -5,9 +5,7 @@
  * @package fwb
  */
 
-namespace fwb\Modules\MenusElementor;
-
-var_export('DONT SHOWED ERROR', true);
+namespace fwb\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -50,7 +48,7 @@ class MenusElementor extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return array( 'general' );
+		return array( 'fwb-general' );
 	}
 
 	/**
@@ -90,18 +88,17 @@ class MenusElementor extends Widget_Base {
 		);
 
 		// Hover Text Color Control
-        $this->add_control(
-            'menu_text_hover_color',
-            array(
-                'label'     => esc_html__( 'Text Hover Color', 'fwb' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => array(
-                    '{{WRAPPER}} .fwb-menu a:hover' => 'color: {{VALUE}};',
-                ),
-            )
-        );
-        
-        
+		$this->add_control(
+			'menu_text_hover_color',
+			array(
+				'label'     => esc_html__( 'Text Hover Color', 'fwb' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .fwb-menu a:hover' => 'color: {{VALUE}};',
+				),
+			)
+		);
+
 		// Hover Text Color Control
 		$this->add_control(
 			'menu_hover_color',
@@ -137,28 +134,28 @@ class MenusElementor extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-    protected function render() {
-        $settings = $this->get_settings_for_display();
-    
-        $menu_orientation = $settings['menu_orientation'];
-    
-        $menu_classes = 'fwb-menu';
-    
-        if ( 'vertical' === $menu_orientation ) {
-            $menu_classes .= ' fwb-vertical-menu';
-        } elseif ( 'horizontal' === $menu_orientation ) {
-            $menu_classes .= ' fwb-horizontal-menu';
-        }
-    
-        if ( ! empty( $settings['menu_id'] ) ) {
-            echo '<div class="' . esc_attr( $menu_classes ) . '">';
-            wp_nav_menu(
-                array(
-                    'menu'       => $settings['menu_id'],
-                    // 'menu_class' => 'fwb-menu',
-                )
-            );
-            echo '</div>';
-        }
-    }
+	protected function render() {
+		$settings = $this->get_settings_for_display();
+
+		$menu_orientation = $settings['menu_orientation'];
+
+		$menu_classes = 'fwb-menu';
+
+		if ( 'vertical' === $menu_orientation ) {
+			$menu_classes .= ' fwb-vertical-menu';
+		} elseif ( 'horizontal' === $menu_orientation ) {
+			$menu_classes .= ' fwb-horizontal-menu';
+		}
+
+		if ( ! empty( $settings['menu_id'] ) ) {
+			echo '<div class="' . esc_attr( $menu_classes ) . '">';
+			wp_nav_menu(
+				array(
+					'menu' => $settings['menu_id'],
+					// 'menu_class' => 'fwb-menu',
+				)
+			);
+			echo '</div>';
+		}
+	}
 }

@@ -45,9 +45,9 @@ if ( ! function_exists( 'ajax_update_cart_total' ) ) {
 }
 
 if ( ! function_exists( 'change_add_to_cart_text' ) ) {
-	function change_add_to_cart_text( $text ) {
+	function change_add_to_cart_text() {
 		return __( 'Add To Cart', 'fwb' );
 	}
-	
-	add_filter( 'woocommerce_product_add_to_cart_text', 'change_add_to_cart_text', 100  );
+
+	add_filter( 'woocommerce_product_add_to_cart_text', 'change_add_to_cart_text', 100 );
 }

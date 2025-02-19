@@ -5,9 +5,9 @@
  * @package fwb
  */
 
- namespace fwb\Base\Classes;
+namespace fwb\Base\Classes;
 
- use fwb\Base\Traits\Singleton;
+use fwb\Base\Traits\Singleton;
 
 /**
  * ImportPage class.

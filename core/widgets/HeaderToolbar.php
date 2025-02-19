@@ -5,7 +5,7 @@
  * @package fwb
  */
 
-namespace fwb\Modules\Header;
+namespace fwb\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -49,7 +49,14 @@ class HeaderToolbar extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return array( 'general' );
+		return array( 'fwb-general' );
+	}
+
+	/**
+	 * Show widgets with conditions.
+	 */
+	public function show_in_panel() {
+		return \fwb\fwb_is_wc_installed();
 	}
 
 	/**
@@ -159,6 +166,10 @@ class HeaderToolbar extends Widget_Base {
 	 * @return void
 	 */
 	protected function render() {
+		if ( ! \fwb\fwb_is_wc_installed() ) {
+			return;
+		}
+
 		$settings  = $this->get_settings_for_display();
 		$icon_size = isset( $settings['icon_size']['size'] ) ? $settings['icon_size']['size'] : 16;
 

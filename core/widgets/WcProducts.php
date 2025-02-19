@@ -5,7 +5,7 @@
  * @package fwb
  */
 
-namespace fwb\Modules\WcProducts;
+namespace fwb\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -21,7 +21,7 @@ class WcProducts extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'fwb-woocommerce-products-widget';
+		return 'fwb-wc-products-widget';
 	}
 
 	/**
@@ -48,7 +48,7 @@ class WcProducts extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return array( 'general' );
+		return array( 'fwb-general' );
 	}
 
 	/**

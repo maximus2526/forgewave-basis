@@ -2,7 +2,7 @@
 /**
  * Custom Elementor Widget for Banner Banners
  */
-namespace fwb\Modules\Banner;
+namespace fwb\Widgets;
 
 use Elementor\Widget_Base;
 
@@ -41,7 +41,7 @@ class Banner extends Widget_Base {
 	 * @return array
 	 */
 	public function get_categories() {
-		return array( 'general' );
+		return array( 'fwb-general' );
 	}
 	/**
 	 * Register controls for the widget.

@@ -5,7 +5,7 @@
  * @package fwb
  */
 
-namespace fwb\Modules\Header;
+namespace fwb\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;

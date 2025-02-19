@@ -43,7 +43,7 @@ class Core {
 		$this->call_get_instance( Classes\ElementorBlocks::class );
 
 		// Including Modules
-		\fwb\Modules\Loader::get_instance();
+		\fwb\Loader::get_instance();
 	}
 
 	/**

@@ -4,7 +4,7 @@
  *
  * @package fwb
  */
-namespace fwb\Modules;
+namespace fwb;
 
 use fwb\Base\Traits\Singleton;
 use Elementor\Plugin;
@@ -24,13 +24,14 @@ class Loader {
 	}
 
 	private function modules_register() {
+		// Register widgets
 		if ( class_exists( 'Elementor\Plugin' ) ) {
-			Plugin::instance()->widgets_manager->register( new MenusElementor\MenusElementor() );
-			Plugin::instance()->widgets_manager->register( new Header\BurgerMenu() );
-			Plugin::instance()->widgets_manager->register( new Header\HeaderToolbar() );
-			Plugin::instance()->widgets_manager->register( new WcProducts\WcProducts() );
-			Plugin::instance()->widgets_manager->register( new Banner\Banner() );
-			Plugin::instance()->widgets_manager->register( new Categories\CategoryBanners() );
+			Plugin::instance()->widgets_manager->register( new \fwb\Widgets\MenusElementor() );
+			Plugin::instance()->widgets_manager->register( new \fwb\Widgets\BurgerMenu() );
+			Plugin::instance()->widgets_manager->register( new \fwb\Widgets\HeaderToolbar() );
+			Plugin::instance()->widgets_manager->register( new \fwb\Widgets\WcProducts() );
+			Plugin::instance()->widgets_manager->register( new \fwb\Widgets\Banner() );
+			Plugin::instance()->widgets_manager->register( new \fwb\Widgets\CategoryBanners() );
 		}
 
 		// Options

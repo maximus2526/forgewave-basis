@@ -2,7 +2,7 @@
 /**
  * Custom Elementor Widget for WooCommerce Category Banners
  */
-namespace fwb\Modules\Categories;
+namespace fwb\Widgets;
 
 use Elementor\Widget_Base;
 

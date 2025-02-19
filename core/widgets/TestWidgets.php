@@ -1,6 +1,6 @@
 <?php
 
-namespace fwb\Modules\TestWidgets;
+namespace fwb\Widgets;
 
 class TestWidgets extends \WP_Widget {
 	function __construct() {

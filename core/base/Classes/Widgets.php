@@ -56,12 +56,12 @@ class Widgets {
 	}
 
 	public function wc_sidebar() {
-		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10); 
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 		add_action( 'woocommerce_sidebar', array( $this, 'custom_woocommerce_sidebar' ) );
 	}
-	
-	public function custom_woocommerce_sidebar() {	
-        get_sidebar(); 
+
+	public function custom_woocommerce_sidebar() {
+		get_sidebar();
 	}
 
 	/**
@@ -70,6 +70,6 @@ class Widgets {
 	 * @return void
 	 */
 	public function register_widgets() {
-		register_widget( '\fwb\Modules\TestWidgets\TestWidgets' );
+		register_widget( '\fwb\Widgets\TestWidgets' );
 	}
 }

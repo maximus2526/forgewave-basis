@@ -90,7 +90,7 @@ class ElementorBlocks {
 	public static function is_elementor_edited( $post_id ) {
 		$is_elementor_edited = false;
 
-		if ( class_exists( '\Elementor\Plugin' ) ) {
+		if ( \fwb\fwb_is_elementor_installed() ) {
 			$elementor = \Elementor\Plugin::instance();
 			$document  = $elementor->documents->get_doc_for_frontend( $post_id );
 
@@ -110,7 +110,7 @@ class ElementorBlocks {
 	public static function get_all_elementor_block_ids() {
 		$block_ids = array();
 
-		if ( class_exists( '\Elementor\Plugin' ) ) {
+		if ( \fwb\fwb_is_elementor_installed() ) {
 			$elementor = \Elementor\Plugin::instance();
 
 			// Query all posts of type 'elementor-blocks'.
@@ -145,7 +145,7 @@ class ElementorBlocks {
 	public function get_ids_with_names() {
 		$ids_with_names = array();
 
-		if ( class_exists( '\Elementor\Plugin' ) ) {
+		if ( \fwb\fwb_is_elementor_installed() ) {
 			$elementor = \Elementor\Plugin::instance();
 
 			$args = array(

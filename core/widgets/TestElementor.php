@@ -5,7 +5,7 @@
  * @package fwb
  */
 
-namespace fwb\Modules\TestElementor;
+namespace fwb\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -48,7 +48,7 @@ class TestElementor extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return array( 'general' );
+		return array( 'fwb-general' );
 	}
 
 	/**

@@ -147,7 +147,7 @@ if ( ! function_exists( 'fwb_get_elementor_block_by_id' ) ) {
 	function fwb_get_elementor_block_by_id( $post_id, $wrapper_class = '' ) {
 		$content = '';
 		ob_start();
-		if ( class_exists( '\Elementor\Plugin' ) ) {
+		if ( \fwb\fwb_is_elementor_installed() ) {
 			$elementor = \Elementor\Plugin::instance();
 			$document  = $elementor->documents->get_doc_for_frontend( $post_id );
 			if ( $document && $document->is_built_with_elementor() ) {
@@ -179,5 +179,27 @@ if ( ! function_exists( 'fwb_add_custom_css_variable' ) ) {
 		echo '<style>';
 		echo ":root { --$variable_name: $variable_value; }";
 		echo '</style>';
+	}
+}
+
+if ( ! function_exists( 'fwb_is_elementor_installed' ) ) {
+	/**
+	 * Check if Elementor is installed and activated.
+	 *
+	 * @return bool True if Elementor is installed and activated, false otherwise.
+	 */
+	function fwb_is_elementor_installed() {
+		return class_exists( '\Elementor\Plugin' );
+	}
+}
+
+if ( ! function_exists( 'fwb_is_wc_installed' ) ) {
+	/**
+	 * Check if WooCommerce is installed and activated.
+	 *
+	 * @return bool True if WooCommerce is installed and activated, false otherwise.
+	 */
+	function fwb_is_wc_installed() {
+		return class_exists( 'WooCommerce' );
 	}
 }

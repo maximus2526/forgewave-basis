@@ -15,7 +15,6 @@ class AddThemeSupport {
 		add_action( 'init', array( $this, 'add_theme_support' ) );
 		add_filter( 'style_loader_tag', array( $this, 'style_loader_tag_filter_preload' ), 10, 2 );
 		add_action( 'after_setup_theme', array( $this, 'add_woocommerce_support' ) );
-		
 	}
 
 	public function add_theme_support() {
