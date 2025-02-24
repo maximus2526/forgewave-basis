@@ -7,7 +7,6 @@
 
 namespace fwb\Theme;
 
-use Elementor\Plugin;
 use fwb\Theme\Singleton;
 use fwb\Theme\Assets;
 use fwb\Theme\Extends\Options;
@@ -28,19 +27,17 @@ class Core {
 	 */
 	public function init() {
 		$this->includes();
+		add_action( 'init', array( $this, 'include_modules' ) );
 
 		// Base classes initialization.
 		$this->call_get_instance( Assets::class );
 		$this->call_get_instance( Options::class );
+		$this->call_get_instance( Elementor_Blocks::class );
 
 		// Admin pages.
 		$this->call_get_instance( OptionsPage::class );
 		$this->call_get_instance( ImportPage::class );
 		$this->call_get_instance( SnippetsPage::class );
-
-		add_action( 'init', array( $this, 'include_modules' ) );
-
-		$this->call_get_instance( Elementor_Blocks::class );
 
 		// Add theme support.
 		add_action( 'init', array( $this, 'add_theme_support' ) );
@@ -48,7 +45,6 @@ class Core {
 		add_action( 'after_setup_theme', array( $this, 'add_woocommerce_support' ) );
 
 		// Register sidebars.
-
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ), 20 );
 		add_action( 'init', array( $this, 'wc_sidebar' ), 20 );
 	}
@@ -58,11 +54,16 @@ class Core {
 	 */
 	public function includes() {
 		require_once FWB_THEME . '/class-assets.php';
+		require_once FWB_THEME . '/admin/components/class-controls.php';
 		require_once FWB_THEME . '/extends/class-options.php';
 		require_once FWB_THEME . '/admin/class-elementor-blocks.php';
 		require_once FWB_THEME . '/admin/class-options-page.php';
 		require_once FWB_THEME . '/admin/class-import-page.php';
 		require_once FWB_THEME . '/admin/class-snippets-page.php';
+
+		// Including Integrations.
+		require_once FWB_THEME . '/integrations/woocommerce.php';
+		require_once FWB_THEME . '/integrations/elementor.php';
 	}
 
 	/**

@@ -80,8 +80,8 @@ if ( ! function_exists( 'fwb_get_admin_template' ) ) {
 			return;
 		}
 
-		if ( file_exists( FWB_ADMIN_TEMPLATES_DIR . '/' . $folder_name . '/' . $filename . '.php' ) ) {
-			include FWB_ADMIN_TEMPLATES_DIR . '/' . $folder_name . '/' . $filename . '.php';
+		if ( file_exists( FWB_ADMIN_TEMPLATES_DIR . '/' . $filename . '.php' ) ) {
+			include FWB_ADMIN_TEMPLATES_DIR . '/' . $filename . '.php';
 		}
 	}
 }

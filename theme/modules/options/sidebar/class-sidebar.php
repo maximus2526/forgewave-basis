@@ -13,9 +13,6 @@ class Sidebar extends Options {
 		parent::init();
 		$this->add_sections_and_fields();
 		$this->include_files();
-
-		add_action( 'add_meta_boxes', array( $this, 'add_metabox' ) );
-		add_action( 'save_post', array( $this, 'save_metabox' ) );
 	}
 
 	public function include_files() {

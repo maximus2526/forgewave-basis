@@ -18,5 +18,5 @@ if ( ! function_exists( 'fwb_disable_gutenberg' ) ) {
 			}
 		);
 	}
-	add_action( 'init', 'fwb\fwb_disable_gutenberg' );
+	add_action( 'init', 'fwb_disable_gutenberg' );
 }

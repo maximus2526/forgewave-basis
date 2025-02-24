@@ -36,7 +36,7 @@ if ( ! function_exists( 'ajax_update_cart_total' ) ) {
 	function ajax_update_cart_total( $fragments ) {
 		ob_start();
 		?>
-	<span class="cart-total"><?php echo WC()->cart->get_cart_total(); ?></span>
+		<span class="cart-total"><?php echo WC()->cart->get_cart_total(); ?></span>
 		<?php
 		$fragments['.cart-total'] = ob_get_clean();
 		return $fragments;

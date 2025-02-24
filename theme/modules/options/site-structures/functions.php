@@ -17,4 +17,4 @@ namespace fwb;
 // }
 // }
 
-// add_action( 'wp_head', 'fwb\custom_elementor_max_width' );
+// add_action( 'wp_head', 'custom_elementor_max_width' );
