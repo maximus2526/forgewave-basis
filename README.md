@@ -3,5 +3,4 @@
 
 To install:
 1. Run command: **node requirements.js**
-2. Setup autoload: **composer dump-autoload**
-3. To build scss: **npx gulp**
+2. To build scss: **npx gulp**

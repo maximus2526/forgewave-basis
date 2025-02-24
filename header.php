@@ -7,8 +7,6 @@
 
 namespace fwb;
 
-require_once 'vendor/autoload.php';
-
 ?>
 
 <!DOCTYPE html>

@@ -3,12 +3,5 @@
     "description": "Creating a high-performance theme that combines user-friendly simplicity with extensive customization options, catering to both corporate and regular users.",
     "require": {
         "php": ">=7.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "fwb\\": "core/",
-            "fwb\\Modules\\": "core/Modules/",
-            "fwb\\Widgets\\": "core/Widgets/"
-        }
-    }   
+    }
 }
