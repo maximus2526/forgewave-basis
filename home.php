@@ -16,18 +16,18 @@ get_header();
 	<div class="fwb-row">
 		<?php get_sidebar(); ?>
 		<div class="fwb-content fwb-col-auto">
-			<?php if ( get_post_meta( $post->ID, 'fwb_hide_title_field', true  )): ?>
+			<?php if ( get_post_meta( $post->ID, 'fwb_hide_title_field', true ) ) : ?>
 			<div class="fwb-page-header alignwide">
 				<h1 class="fwb-page-title"><?php single_post_title(); ?></h1>
 			</div>
-			<?php
+				<?php
 			endif;
 			if ( have_posts() ) {
 				// Load posts loop.
 				while ( have_posts() ) {
 					the_post();
 					// Output your post content here.
-					the_title('<h2>', '</h2>');
+					the_title( '<h2>', '</h2>' );
 					the_content();
 				}
 			} else {

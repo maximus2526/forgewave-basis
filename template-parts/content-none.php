@@ -6,6 +6,7 @@
  */
 
 namespace fwb;
+
 ?>
 
 <article id="post-0" class="post no-results not-found fwb-no-results">

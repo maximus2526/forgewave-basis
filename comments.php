@@ -21,7 +21,7 @@ if ( post_password_required() ) {
 			if ( $comments_number === 1 ) {
 				echo esc_html__( '1 Comment', 'fwb' );
 			} else {
-				echo $comments_number . esc_html__( ' Comments', 'fwb' );
+				echo esc_html( $comments_number ) . esc_html__( ' Comments', 'fwb' );
 			}
 			?>
 		</h2>

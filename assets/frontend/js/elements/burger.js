@@ -1,13 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var burgerElement = document.querySelector('.fwb-burger-element');
-    var burgerContent = document.querySelector('.fwb-burger-content');
+document.addEventListener(
+	'DOMContentLoaded',
+	function () {
+		var burgerElement = document.querySelector( '.fwb-burger-element' );
+		var burgerContent = document.querySelector( '.fwb-burger-content' );
 
-    burgerElement.addEventListener('click', function () {
-        burgerContent.style.display = 'block';
-    });
+		burgerElement.addEventListener(
+			'click',
+			function () {
+				burgerContent.style.display = 'block';
+			}
+		);
 
-    var burgerClose = document.querySelector('.fwb-burger-close');
-    burgerClose.addEventListener('click', function () {
-        burgerContent.style.display = 'none';
-    });
-});
+		var burgerClose = document.querySelector( '.fwb-burger-close' );
+		burgerClose.addEventListener(
+			'click',
+			function () {
+				burgerContent.style.display = 'none';
+			}
+		);
+	}
+);

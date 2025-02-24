@@ -12,7 +12,7 @@
  *
  * @see         https://woo.com/document/template-structure/
  * @package     WooCommerce\Templates
- * @version     3.3.0
+ * @version     9.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,14 +21,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 
-    echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-        sprintf( '<div class="fwb-quantity">
-                    <input type="button" value="-" class="minus">
-                    <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric">
-                    <input type="button" value="+" class="plus">
-                </div>
-                <button type="submit" class="button %s">%s</button>',
-            esc_attr( $product->is_purchasable() ? 'add_to_cart_button' : ''),
-            esc_html( $product->add_to_cart_text() )
-        ),
-    $product );
+echo apply_filters(
+	'woocommerce_loop_add_to_cart_link',
+	sprintf(
+		'<div class="fwb-quantity">
+                <input type="button" value="-" class="minus">
+                <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric">
+                <input type="button" value="+" class="plus">
+            </div>
+            <button type="submit" class="button %s">%s</button>',
+		esc_attr( $product->is_purchasable() ? 'add_to_cart_button' : '' ),
+		esc_html( $product->add_to_cart_text() )
+	),
+	$product
+);

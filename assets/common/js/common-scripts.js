@@ -1,17 +1,25 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener(
+	'DOMContentLoaded',
+	function () {
 
-    // Color picker control.
+		// Color picker control.
 
-    var colorPickerControls = document.querySelectorAll('.fwb-color-picker-control-wrapper');
+		var colorPickerControls = document.querySelectorAll( '.fwb-color-picker-control-wrapper' );
 
-    colorPickerControls.forEach(function (control) {
-        var colorPicker = control.querySelector('.fwb-color-picker-control');
-        var clearButton = control.querySelector('.fwb-clear-color-button');
+		colorPickerControls.forEach(
+			function (control) {
+				var colorPicker = control.querySelector( '.fwb-color-picker-control' );
+				var clearButton = control.querySelector( '.fwb-clear-color-button' );
 
-        var defaultColor = clearButton.dataset.default;
+				var defaultColor = clearButton.dataset.default;
 
-        clearButton.addEventListener('click', function () {
-            colorPicker.value = defaultColor;
-        });
-    });
-});
+				clearButton.addEventListener(
+					'click',
+					function () {
+						colorPicker.value = defaultColor;
+					}
+				);
+			}
+		);
+	}
+);

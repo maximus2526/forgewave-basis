@@ -1,7 +1,7 @@
 <?php
 /**
  * Custom product design - default design
- * 
+ *
  * @package FWB
  */
 
@@ -11,35 +11,35 @@ global $product;
 ?>
 
 <a href="<?php echo esc_url( get_permalink() ); ?>">
-    <?php
+	<?php
 
 
-    /**
-     * woocommerce_shop_loop_item_title hook.
-     *
-     * @hooked woocommerce_template_loop_product_title - 10
-     */
-    do_action( 'woocommerce_shop_loop_item_title' );
+	/**
+	 * woocommerce_shop_loop_item_title hook.
+	 *
+	 * @hooked woocommerce_template_loop_product_title - 10
+	 */
+	do_action( 'woocommerce_shop_loop_item_title' );
 
-    /**
-     * woocommerce_after_shop_loop_item_title hook.
-     *
-     * @hooked woocommerce_template_loop_rating - 5
-     * @hooked woocommerce_template_loop_price - 10
-     */
-    do_action( 'woocommerce_after_shop_loop_item_title' );
+	/**
+	 * woocommerce_after_shop_loop_item_title hook.
+	 *
+	 * @hooked woocommerce_template_loop_rating - 5
+	 * @hooked woocommerce_template_loop_price - 10
+	 */
+	do_action( 'woocommerce_after_shop_loop_item_title' );
 
-    /**
-     * woocommerce_after_shop_loop_item hook.
-     *
-     * @hooked woocommerce_template_loop_product_link_close - 5
-     * @hooked woocommerce_template_loop_add_to_cart - 10
-     */
-    do_action( 'woocommerce_after_shop_loop_item' );
-    ?>
+	/**
+	 * woocommerce_after_shop_loop_item hook.
+	 *
+	 * @hooked woocommerce_template_loop_product_link_close - 5
+	 * @hooked woocommerce_template_loop_add_to_cart - 10
+	 */
+	do_action( 'woocommerce_after_shop_loop_item' );
+	?>
 </a>
 
-<?php    
+<?php
 /**
  * woocommerce_before_shop_loop_item hook.
  *
@@ -49,10 +49,10 @@ do_action( 'woocommerce_before_shop_loop_item' );
 ?>
 
 <div class="fwb-product-thambnail">
-    <?php woocommerce_template_loop_product_thumbnail(); ?>
+	<?php woocommerce_template_loop_product_thumbnail(); ?>
 </div>
 
-<?php    
+<?php
 /**
  * woocommerce_before_shop_loop_item_title hook.
  *
@@ -63,26 +63,26 @@ do_action( 'woocommerce_before_shop_loop_item_title' );
 ?>
 
 <div class="fwb-product-content">
-    <div class="fwb-product-title">
-        <?php the_title(); ?>
-    </div>
+	<div class="fwb-product-title">
+		<?php the_title(); ?>
+	</div>
 
-    <div class="fwb-product-short-description">
-        <?php  
-        $short_description = $product->get_short_description();
-        if ( $short_description ) {
-            echo wpautop( $short_description );
-        }
-        ?>
-    </div>
+	<div class="fwb-product-short-description">
+		<?php
+		$short_description = $product->get_short_description();
+		if ( $short_description ) {
+			echo wpautop( $short_description );
+		}
+		?>
+	</div>
 
-    <div class="fwb-product-price">
-        <?php echo woocommerce_template_loop_price() ?>
-    </div>
+	<div class="fwb-product-price">
+		<?php echo woocommerce_template_loop_price(); ?>
+	</div>
 
-    <div class="fwb-add-to-cart-btn">
-        <?php echo woocommerce_template_loop_add_to_cart(); ?>
-    </div>
+	<div class="fwb-add-to-cart-btn">
+		<?php echo woocommerce_template_loop_add_to_cart(); ?>
+	</div>
 </div>
 
 
