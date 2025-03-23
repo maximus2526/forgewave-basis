@@ -31,9 +31,11 @@ class Controls {
 
 	public static function select_control( $field_id, $value, $options ) {
 		echo '<select class="fwb-select-control" name="' . esc_attr( $field_id ) . '" id="' . esc_attr( $field_id ) . '">';
-		foreach ( $options as $option_value => $option_label ) {
-			$selected = selected( $value, $option_value, false );
-			echo '<option value="' . esc_attr( $option_value ) . '" ' . $selected . '>' . esc_html( $option_label ) . '</option>';
+		if ( is_array( $options ) ) {
+			foreach ( $options as $option_value => $option_label ) {
+				$selected = selected( $value, $option_value, false );
+				echo '<option value="' . esc_attr( $option_value ) . '" ' . $selected . '>' . esc_html( $option_label ) . '</option>';
+			}
 		}
 		echo '</select>';
 	}

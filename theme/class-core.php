@@ -9,6 +9,7 @@ namespace fwb\Theme;
 
 use fwb\Theme\Singleton;
 use fwb\Theme\Assets;
+use fwb\Theme\Theme_Install;
 use fwb\Theme\Extends\Options;
 use fwb\Theme\Admin\Elementor_Blocks;
 use fwb\Theme\Admin\OptionsPage;
@@ -27,6 +28,10 @@ class Core {
 	 */
 	public function init() {
 		$this->includes();
+
+		// Install starter content.
+		$this->call_get_instance( Theme_Install::class );
+
 		add_action( 'init', array( $this, 'include_modules' ) );
 
 		// Base classes initialization.
@@ -53,6 +58,7 @@ class Core {
 	 * Include necessary files.
 	 */
 	public function includes() {
+		require_once FWB_THEME . '/class-install.php';
 		require_once FWB_THEME . '/class-assets.php';
 		require_once FWB_THEME . '/admin/components/class-controls.php';
 		require_once FWB_THEME . '/extends/class-options.php';
